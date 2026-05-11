@@ -2,6 +2,7 @@ import json
 from typing import Any
 
 from mafin.agents.base import Agent
+from mafin.schema import TechnicalAnalysisOutput
 
 SYSTEM_PROMPT = """Você é um analista técnico de mercado de ações brasileiro.
 
@@ -12,12 +13,7 @@ Restrições:
 - Não recomende compra ou venda. Apenas descreva o estado técnico.
 - Cite números quando disponíveis no input. Não invente valores.
 - Seja sucinto: 2-4 frases por ativo, no máximo.
-
-Saída obrigatória em JSON com a estrutura:
-{
-  "per_ticker": [{"ticker": str, "summary": str, "signals": [str]}],
-  "overall": str
-}
+- Não use linguagem de oportunidade, entrada, saída ou ajuste.
 """
 
 
@@ -30,14 +26,19 @@ class TechnicalAgent(Agent):
         market = state.get("market_data", {})
 
         prompt = (
-            f"Carteira (ticker, peso, setor):\n{json.dumps(portfolio, ensure_ascii=False, indent=2)}\n\n"
+            f"Carteira (ticker, peso, setor):\n"
+            f"{json.dumps(portfolio, ensure_ascii=False, indent=2)}\n\n"
             f"Dados de mercado por ticker:\n{json.dumps(market, ensure_ascii=False, indent=2)}\n\n"
             "Produza a análise técnica conforme o schema."
         )
 
-        content = self._invoke(prompt)
+        output = self._invoke_structured(prompt, schema=TechnicalAnalysisOutput)
         return {
             "analyses": [
-                {"role": self.role, "model": self.model, "content": content}
+                {
+                    "role": self.role,
+                    "model": self.model,
+                    "output": output.model_dump(),
+                }
             ]
         }

@@ -1,0 +1,13 @@
+{
+  "portfolio": [
+    {"ticker": "PETR4", "weight": 0.3, "sector": "Energia"},
+    {"ticker": "VALE3", "weight": 0.25, "sector": "Mineração"},
+    {"ticker": "ITUB4", "weight": 0.25, "sector": "Financeiro"},
+    {"ticker": "WEGE3", "weight": 0.2, "sector": "Industrial"}
+  ],
+  "profile": {
+    "risk_tolerance": "moderate",
+    "horizon": "long",
+    "objective": "valorização de capital com tolerância média a drawdown"
+  }
+}

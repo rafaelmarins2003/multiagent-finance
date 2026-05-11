@@ -9,4 +9,12 @@ venv/
 build/
 dist/
 data/cache/
+data/snapshots/
+data/results/
+data/traces/
+article/
+ignore/
 *.log
+idea.txt
+models_choose.txt
+ROADMAP.md

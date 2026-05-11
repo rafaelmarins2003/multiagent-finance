@@ -9,6 +9,13 @@ dependencies = [
     "langchain-core>=0.3.0",
     "pydantic>=2.0",
     "yfinance>=0.2.40",
+    "python-dotenv>=1.2.2",
+    "ruff>=0.15.12",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
 ]
 
 [build-system]
@@ -17,6 +24,10 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/mafin"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -q"
 
 [tool.ruff]
 line-length = 100

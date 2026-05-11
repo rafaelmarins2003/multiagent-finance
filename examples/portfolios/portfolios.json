@@ -1,0 +1,2866 @@
+{
+  "$schema_note": "Coleção de carteiras públicas brasileiras coletadas em 2026-05-10 para o workload experimental. Cada entrada declara fonte e nível de confiança dos pesos. Pesos somam ~1.0 (tolerância ±0.01 conforme Portfolio validator).",
+  "fetched_on": "2026-05-10",
+  "ticker_corrections": {
+    "BRFS3": {
+      "replacement": "MBRF3",
+      "reason": "BRF foi incorporada pela Marfrig/MBRF; MBRF3 passou a negociar na B3 em 2025-09-23."
+    },
+    "CCRO3": {
+      "replacement": "MOTV3",
+      "reason": "CCR mudou o nome para Motiva e o ticker passou a MOTV3 em 2025-05-02."
+    },
+    "CPLE6": {
+      "replacement": "CPLE3",
+      "reason": "Copel migrou para estrutura apenas ON no Novo Mercado; CPLE6 deixou de negociar e CPLE3 permanece como ticker negociável."
+    },
+    "ELET3": {
+      "replacement": "AXIA3",
+      "reason": "Eletrobras mudou o nome para AXIA Energia; ELET3 passou a AXIA3."
+    },
+    "ELET6": {
+      "replacement": "AXIA6",
+      "reason": "Eletrobras mudou o nome para AXIA Energia; ELET6 passou a AXIA6."
+    },
+    "EMBR3": {
+      "replacement": "EMBJ3",
+      "reason": "Embraer alterou seu ticker na B3 de EMBR3 para EMBJ3 em 2025."
+    },
+    "JBSS3": {
+      "replacement": "JBSS32",
+      "reason": "JBS concluiu dupla listagem; ações JBSS3 deixaram a B3 e foram substituídas por BDRs JBSS32 em 2025-06."
+    },
+    "NTCO3": {
+      "replacement": "NATU3",
+      "reason": "Natura concluiu incorporação da Natura &Co; NTCO3 foi substituído por NATU3 em 2025-07."
+    }
+  },
+  "schema": {
+    "id": "identificador único <broker>-<carteira>-<YYYY-MM>",
+    "broker": "instituição que publicou a carteira",
+    "carteira_name": "nome comercial da carteira",
+    "as_of": "data de referência da composição (mês/trimestre)",
+    "profile_inferred": "perfil sintético atribuído pelo nosso mapeamento, a partir da natureza da carteira",
+    "weights_attribution": "explicit_from_source | assumed_equal_weight (quando o relatório original menciona apenas alocação igualitária ou typical-equal-weight da metodologia, sem tabela de pesos)",
+    "source": "url, título e data de extração",
+    "portfolio": "lista [{ticker, weight, sector}] no schema do mafin",
+    "profile": "{risk_tolerance, horizon, objective} compatível com mafin.data.portfolio.UserProfile"
+  },
+  "portfolios": [
+    {
+      "id": "xp-top-acoes-2025-11",
+      "broker": "XP Investimentos",
+      "carteira_name": "Top Ações XP",
+      "as_of": "2025-11-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "13 ações para ter na carteira em novembro, segundo a XP Investimentos",
+        "publisher": "Money Times",
+        "url": "https://www.moneytimes.com.br/13-acoes-para-ter-na-carteira-em-novembro-segundo-a-xp-investimentos-lmrs/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "ITUB4",
+          "weight": 0.15,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "SMFT3",
+          "weight": 0.1,
+          "sector": "Serviços"
+        },
+        {
+          "ticker": "CYRE3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "IGTI11",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "CPLE3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.05,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "PRIO3",
+          "weight": 0.05,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "GGBR4",
+          "weight": 0.05,
+          "sector": "Siderurgia"
+        },
+        {
+          "ticker": "MOTV3",
+          "weight": 0.05,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "AXIA3",
+          "weight": 0.05,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "CXSE3",
+          "weight": 0.05,
+          "sector": "Seguros"
+        },
+        {
+          "ticker": "SANB11",
+          "weight": 0.05,
+          "sector": "Financeiro"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "valorização de capital de longo prazo via diversificação setorial e ações com valuation atrativo"
+      }
+    },
+    {
+      "id": "xp-top-acoes-2026-01",
+      "broker": "XP Investimentos",
+      "carteira_name": "Top Ações XP",
+      "as_of": "2026-01-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "15 ações para se posicionar no primeiro mês de 2026, segundo a XP Investimentos",
+        "publisher": "Money Times",
+        "url": "https://www.moneytimes.com.br/15-acoes-para-se-posicionar-no-primeiro-mes-de-2026-segundo-a-xp-investimentos-lmrs/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "ITUB4",
+          "weight": 0.15,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "MELI34",
+          "weight": 0.1,
+          "sector": "Tecnologia"
+        },
+        {
+          "ticker": "IGTI11",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "CPLE3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "PRIO3",
+          "weight": 0.05,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "AURA33",
+          "weight": 0.05,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.05,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "GGBR4",
+          "weight": 0.05,
+          "sector": "Siderurgia"
+        },
+        {
+          "ticker": "SMFT3",
+          "weight": 0.05,
+          "sector": "Serviços"
+        },
+        {
+          "ticker": "MOTV3",
+          "weight": 0.05,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "RENT3",
+          "weight": 0.05,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "CYRE3",
+          "weight": 0.05,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "SBSP3",
+          "weight": 0.05,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "B3SA3",
+          "weight": 0.05,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "BPAC11",
+          "weight": 0.05,
+          "sector": "Financeiro"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "valorização de capital de longo prazo via diversificação setorial e ações com valuation atrativo"
+      }
+    },
+    {
+      "id": "xp-top-acoes-2026-04",
+      "broker": "XP Investimentos",
+      "carteira_name": "Top Ações XP",
+      "as_of": "2026-04-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "15 ações para investir em abril, de acordo com a XP",
+        "publisher": "Suno Notícias",
+        "url": "https://www.suno.com.br/noticias/acoes-para-investir-abril-acordo-com-xp-veja-lista/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "ITUB4",
+          "weight": 0.15,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.125,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.125,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "CPLE3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "MBRF3",
+          "weight": 0.05,
+          "sector": "Alimentos"
+        },
+        {
+          "ticker": "MOTV3",
+          "weight": 0.05,
+          "sector": "Concessões"
+        },
+        {
+          "ticker": "AXIA3",
+          "weight": 0.05,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "BBAS3",
+          "weight": 0.05,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "CXSE3",
+          "weight": 0.05,
+          "sector": "Seguros"
+        },
+        {
+          "ticker": "CYRE3",
+          "weight": 0.05,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "IGTI11",
+          "weight": 0.05,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "SUZB3",
+          "weight": 0.05,
+          "sector": "Papel e Celulose"
+        },
+        {
+          "ticker": "GGBR4",
+          "weight": 0.05,
+          "sector": "Siderurgia"
+        },
+        {
+          "ticker": "NATU3",
+          "weight": 0.025,
+          "sector": "Consumo"
+        },
+        {
+          "ticker": "GMAT3",
+          "weight": 0.025,
+          "sector": "Varejo"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "valorização de capital de longo prazo via diversificação setorial e ações com valuation atrativo"
+      }
+    },
+    {
+      "id": "xp-small-caps-2026-05",
+      "broker": "XP Investimentos",
+      "carteira_name": "Top Small Caps XP",
+      "as_of": "2026-05-01",
+      "profile_inferred": "aggressive",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "XP mexe na carteira de small caps e inclui Alupar (ALUP11) e BR Partners (BRBI11)",
+        "publisher": "Seu Dinheiro",
+        "url": "https://www.seudinheiro.com/2026/bolsa-dolar/xp-mexe-na-carteira-de-small-caps-e-inclui-alupar-alup11-e-br-partners-brbi11-veja-quem-saiu-cbcb/",
+        "fetched_on": "2026-05-10",
+        "note": "Reportagem cita 11 ações com pesos explícitos (Orizon 15%, Vivara/Cury/Pague Menos/3tentos/TTEN3 10%, Marcopolo/Bemobi 7,5%, AURA33/LWSA3/Mills/Priner 5%) somando 90%. Os 10% restantes correspondem às duas entradas (ALUP11 e BRBI11) sem peso explícito divulgado; assumimos 5% cada para fechar 100%"
+      },
+      "portfolio": [
+        {
+          "ticker": "ORVR3",
+          "weight": 0.15,
+          "sector": "Serviços Ambientais"
+        },
+        {
+          "ticker": "VIVA3",
+          "weight": 0.1,
+          "sector": "Varejo"
+        },
+        {
+          "ticker": "CURY3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "TTEN3",
+          "weight": 0.1,
+          "sector": "Agronegócio"
+        },
+        {
+          "ticker": "PGMN3",
+          "weight": 0.1,
+          "sector": "Varejo Farmácia"
+        },
+        {
+          "ticker": "POMO4",
+          "weight": 0.075,
+          "sector": "Industrial"
+        },
+        {
+          "ticker": "BMOB3",
+          "weight": 0.075,
+          "sector": "Tecnologia"
+        },
+        {
+          "ticker": "AURA33",
+          "weight": 0.05,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "LWSA3",
+          "weight": 0.05,
+          "sector": "Tecnologia"
+        },
+        {
+          "ticker": "MILS3",
+          "weight": 0.05,
+          "sector": "Industrial"
+        },
+        {
+          "ticker": "PRNR3",
+          "weight": 0.05,
+          "sector": "Serviços Industriais"
+        },
+        {
+          "ticker": "ALUP11",
+          "weight": 0.05,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "BRBI11",
+          "weight": 0.05,
+          "sector": "Financeiro"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "aggressive",
+        "horizon": "long",
+        "objective": "crescimento via small caps com alta tolerância a volatilidade e drawdown"
+      }
+    },
+    {
+      "id": "xp-carteira-valor-2026-01",
+      "broker": "XP Investimentos",
+      "carteira_name": "Carteira Valor XP",
+      "as_of": "2026-01-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "Carteiras recomendadas de ações para janeiro de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/01/carteiras-recomendadas-de-acoes-para-janeiro-de-2026-e-ranking",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "PRIO3",
+          "weight": 0.2,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "BBSE3",
+          "weight": 0.2,
+          "sector": "Seguros"
+        },
+        {
+          "ticker": "MRVE3",
+          "weight": 0.2,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "MGLU3",
+          "weight": 0.2,
+          "sector": "Varejo"
+        },
+        {
+          "ticker": "IGTI11",
+          "weight": 0.2,
+          "sector": "Imobiliário"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "carteira concentrada em teses de valor com 5 ações de setores diversos"
+      }
+    },
+    {
+      "id": "btg-10sim-2026-05",
+      "broker": "BTG Pactual",
+      "carteira_name": "Carteira 10SIM",
+      "as_of": "2026-05-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "Carteira Recomendada de Ações 10SIM BTG Pactual",
+        "publisher": "Renova Invest (republicação)",
+        "url": "https://renovainvest.com.br/blog/carteira-recomendada-acoes-btg/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "PETR4",
+          "weight": 0.15,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "RENT3",
+          "weight": 0.15,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "ROXO34",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "AXIA3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "EMBJ3",
+          "weight": 0.1,
+          "sector": "Industrial"
+        },
+        {
+          "ticker": "ENEV3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "MOTV3",
+          "weight": 0.1,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "TOTS3",
+          "weight": 0.1,
+          "sector": "Tecnologia"
+        },
+        {
+          "ticker": "ALOS3",
+          "weight": 0.05,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "CURY3",
+          "weight": 0.05,
+          "sector": "Imobiliário"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "captura de melhores oportunidades do mercado de ações brasileiro selecionadas mensalmente pelo research"
+      }
+    },
+    {
+      "id": "btg-dividendos-2026-05",
+      "broker": "BTG Pactual",
+      "carteira_name": "Carteira Dividendos BTG",
+      "as_of": "2026-05-01",
+      "profile_inferred": "conservative",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "Carteira Recomendada de Dividendos BTG Pactual",
+        "publisher": "Renova Invest (republicação)",
+        "url": "https://renovainvest.com.br/blog/carteira-recomendada-de-dividendos-btg-pactual/",
+        "fetched_on": "2026-05-10",
+        "note": "Pesos originais da reportagem (8x10% + 2x5%) somavam 90%; renormalizamos proporcionalmente para fechar 1.0"
+      },
+      "portfolio": [
+        {
+          "ticker": "PETR4",
+          "weight": 0.1111,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1111,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "BBDC4",
+          "weight": 0.1111,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "AXIA3",
+          "weight": 0.1111,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "EQTL3",
+          "weight": 0.1111,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "CPLE3",
+          "weight": 0.1111,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "MOTV3",
+          "weight": 0.1111,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "ALOS3",
+          "weight": 0.1111,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.0556,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "VBBR3",
+          "weight": 0.0556,
+          "sector": "Energia"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "conservative",
+        "horizon": "long",
+        "objective": "geração de renda recorrente via ações pagadoras de dividendos consistentes"
+      }
+    },
+    {
+      "id": "btg-small-caps-2026-05",
+      "broker": "BTG Pactual",
+      "carteira_name": "Carteira Small Caps BTG",
+      "as_of": "2026-05-01",
+      "profile_inferred": "aggressive",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteira Recomendada de Small Caps BTG Pactual",
+        "publisher": "Renova Invest (republicação)",
+        "url": "https://renovainvest.com.br/blog/carteira-recomendada-small-caps-btg-pactual/",
+        "fetched_on": "2026-05-10",
+        "note": "Fonte indica 10 ações com peso de 10% cada"
+      },
+      "portfolio": [
+        {
+          "ticker": "CSMG3",
+          "weight": 0.1,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "SAPR11",
+          "weight": 0.1,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "SMFT3",
+          "weight": 0.1,
+          "sector": "Serviços"
+        },
+        {
+          "ticker": "TTEN3",
+          "weight": 0.1,
+          "sector": "Agronegócio"
+        },
+        {
+          "ticker": "ODPV3",
+          "weight": 0.1,
+          "sector": "Saúde"
+        },
+        {
+          "ticker": "PGMN3",
+          "weight": 0.1,
+          "sector": "Varejo Farmácia"
+        },
+        {
+          "ticker": "PINE4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "TEND3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "BMOB3",
+          "weight": 0.1,
+          "sector": "Tecnologia"
+        },
+        {
+          "ticker": "VTRU3",
+          "weight": 0.1,
+          "sector": "Educação"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "aggressive",
+        "horizon": "long",
+        "objective": "crescimento via empresas de menor capitalização com forte geração de caixa"
+      }
+    },
+    {
+      "id": "btg-analise-tecnica-2026-05",
+      "broker": "BTG Pactual",
+      "carteira_name": "Carteira BTG (referência ADVFN maio 2026)",
+      "as_of": "2026-05-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteiras recomendadas de ações para maio de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/05/carteiras-recomendadas-de-acoes-para-maio-de-2026-e-ranking-2",
+        "fetched_on": "2026-05-10",
+        "note": "ADVFN lista as 10 ações sem detalhar pesos; assumimos equal-weight 10%"
+      },
+      "portfolio": [
+        {
+          "ticker": "ROXO34",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "CURY3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "AXIA3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "RENT3",
+          "weight": 0.1,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "TOTS3",
+          "weight": 0.1,
+          "sector": "Tecnologia"
+        },
+        {
+          "ticker": "ENEV3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "MOTV3",
+          "weight": 0.1,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "ALOS3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "EMBJ3",
+          "weight": 0.1,
+          "sector": "Industrial"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "carteira BTG conforme compilação ADVFN, foco em valorização de capital de longo prazo"
+      }
+    },
+    {
+      "id": "bb-dividendos-2025-q3",
+      "broker": "BB Investimentos",
+      "carteira_name": "Carteira BB Dividendos",
+      "as_of": "2025-06-01",
+      "profile_inferred": "conservative",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteira BB Dividendos — composição mantida até agosto 2025",
+        "publisher": "InvesTalk BB",
+        "url": "https://investalk.bb.com.br/noticias/onde-investir/dividendos-outubro-2025",
+        "fetched_on": "2026-05-10",
+        "note": "Composição pré-rotação de setembro 2025, derivada da nota de troca trimestral. Metodologia BB Dividendos usa pesos iguais (10%) por padrão"
+      },
+      "portfolio": [
+        {
+          "ticker": "BBDC4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "CMIG4",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "ISAE4",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "POMO4",
+          "weight": 0.1,
+          "sector": "Industrial"
+        },
+        {
+          "ticker": "PSSA3",
+          "weight": 0.1,
+          "sector": "Seguros"
+        },
+        {
+          "ticker": "SAPR11",
+          "weight": 0.1,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "VBBR3",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "CPFE3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "TIMS3",
+          "weight": 0.1,
+          "sector": "Telecomunicações"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "conservative",
+        "horizon": "long",
+        "objective": "renda recorrente via dividendos com baixa rotação e foco em pagadores consistentes"
+      }
+    },
+    {
+      "id": "bb-dividendos-2025-q4",
+      "broker": "BB Investimentos",
+      "carteira_name": "Carteira BB Dividendos",
+      "as_of": "2025-09-01",
+      "profile_inferred": "conservative",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteira BB Dividendos — composição setembro a novembro 2025",
+        "publisher": "InvesTalk BB",
+        "url": "https://investalk.bb.com.br/noticias/onde-investir/dividendos-outubro-2025",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "ABCB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "CXSE3",
+          "weight": 0.1,
+          "sector": "Seguros"
+        },
+        {
+          "ticker": "DIRR3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "ITSA4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "KLBN11",
+          "weight": 0.1,
+          "sector": "Papel e Celulose"
+        },
+        {
+          "ticker": "TAEE11",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "CPFE3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "TIMS3",
+          "weight": 0.1,
+          "sector": "Telecomunicações"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "conservative",
+        "horizon": "long",
+        "objective": "renda recorrente via dividendos com baixa rotação e foco em pagadores consistentes"
+      }
+    },
+    {
+      "id": "bb-dividendos-2025-12",
+      "broker": "BB Investimentos",
+      "carteira_name": "Carteira BB Dividendos",
+      "as_of": "2025-12-01",
+      "profile_inferred": "conservative",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteira BB Dividendos — composição dezembro 2025 a fevereiro 2026",
+        "publisher": "InvesTalk BB",
+        "url": "https://investalk.bb.com.br/noticias/onde-investir/dividendos-janeiro-2026",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "ABCB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "CXSE3",
+          "weight": 0.1,
+          "sector": "Seguros"
+        },
+        {
+          "ticker": "ITSA4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "ABEV3",
+          "weight": 0.1,
+          "sector": "Bebidas"
+        },
+        {
+          "ticker": "POMO4",
+          "weight": 0.1,
+          "sector": "Industrial"
+        },
+        {
+          "ticker": "VIVT3",
+          "weight": 0.1,
+          "sector": "Telecomunicações"
+        },
+        {
+          "ticker": "VULC3",
+          "weight": 0.1,
+          "sector": "Calçados"
+        },
+        {
+          "ticker": "WEGE3",
+          "weight": 0.1,
+          "sector": "Industrial"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "conservative",
+        "horizon": "long",
+        "objective": "renda recorrente via dividendos com baixa rotação e foco em pagadores consistentes"
+      }
+    },
+    {
+      "id": "bb-dividendos-2026-05",
+      "broker": "BB Investimentos",
+      "carteira_name": "Carteira BB Dividendos",
+      "as_of": "2026-05-01",
+      "profile_inferred": "conservative",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "Confira a Carteira BB Dividendos para maio de 2026",
+        "publisher": "InvesTalk BB",
+        "url": "https://investalk.bb.com.br/noticias/onde-investir/dividendos-maio-2026",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "BRAP4",
+          "weight": 0.1,
+          "sector": "Holding Mineração"
+        },
+        {
+          "ticker": "CMIG4",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "CPLE3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "DIRR3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "KLBN11",
+          "weight": 0.1,
+          "sector": "Papel e Celulose"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "POMO4",
+          "weight": 0.1,
+          "sector": "Industrial"
+        },
+        {
+          "ticker": "PSSA3",
+          "weight": 0.1,
+          "sector": "Seguros"
+        },
+        {
+          "ticker": "UNIP6",
+          "weight": 0.1,
+          "sector": "Química"
+        },
+        {
+          "ticker": "VULC3",
+          "weight": 0.1,
+          "sector": "Calçados"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "conservative",
+        "horizon": "long",
+        "objective": "renda recorrente via dividendos com expected DY médio de 7-8%"
+      }
+    },
+    {
+      "id": "bb-fundamentalista-2026-01",
+      "broker": "BB Investimentos",
+      "carteira_name": "Carteira Fundamentalista BB",
+      "as_of": "2026-01-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteiras recomendadas de ações para janeiro de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/01/carteiras-recomendadas-de-acoes-para-janeiro-de-2026-e-ranking",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "B3SA3",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "SLCE3",
+          "weight": 0.1,
+          "sector": "Agronegócio"
+        },
+        {
+          "ticker": "TEND3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "GGBR4",
+          "weight": 0.1,
+          "sector": "Siderurgia"
+        },
+        {
+          "ticker": "ISAE4",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "ROXO34",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "VBBR3",
+          "weight": 0.1,
+          "sector": "Energia"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "10 ações de análise fundamentalista cobrindo setores cíclicos e defensivos"
+      }
+    },
+    {
+      "id": "bb-fundamentalista-2026-04",
+      "broker": "BB Investimentos",
+      "carteira_name": "Carteira Fundamentalista BB",
+      "as_of": "2026-04-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteiras recomendadas de ações para abril de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/04/carteiras-recomendadas-de-acoes-para-abril-de-2026-e-ranking-2",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "B3SA3",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "AXIA3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "BBDC4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "TEND3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "ALUP11",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "SLCE3",
+          "weight": 0.1,
+          "sector": "Agronegócio"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "VBBR3",
+          "weight": 0.1,
+          "sector": "Energia"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "10 ações de análise fundamentalista cobrindo setores cíclicos e defensivos"
+      }
+    },
+    {
+      "id": "bb-5mais-2026-01",
+      "broker": "BB Investimentos",
+      "carteira_name": "Carteira BB 5+",
+      "as_of": "2026-01-01",
+      "profile_inferred": "aggressive",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteiras recomendadas de ações para janeiro de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/01/carteiras-recomendadas-de-acoes-para-janeiro-de-2026-e-ranking",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "CXSE3",
+          "weight": 0.2,
+          "sector": "Seguros"
+        },
+        {
+          "ticker": "BRAV3",
+          "weight": 0.2,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "POMO4",
+          "weight": 0.2,
+          "sector": "Industrial"
+        },
+        {
+          "ticker": "RECV3",
+          "weight": 0.2,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "SUZB3",
+          "weight": 0.2,
+          "sector": "Papel e Celulose"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "aggressive",
+        "horizon": "medium",
+        "objective": "carteira concentrada em 5 teses de maior convicção do BB-BI"
+      }
+    },
+    {
+      "id": "bb-5mais-2026-05",
+      "broker": "BB Investimentos",
+      "carteira_name": "Carteira BB 5+",
+      "as_of": "2026-05-01",
+      "profile_inferred": "aggressive",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteiras recomendadas de ações para maio de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/05/carteiras-recomendadas-de-acoes-para-maio-de-2026-e-ranking-2",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "CSNA3",
+          "weight": 0.2,
+          "sector": "Siderurgia"
+        },
+        {
+          "ticker": "HAPV3",
+          "weight": 0.2,
+          "sector": "Saúde"
+        },
+        {
+          "ticker": "GGBR4",
+          "weight": 0.2,
+          "sector": "Siderurgia"
+        },
+        {
+          "ticker": "HYPE3",
+          "weight": 0.2,
+          "sector": "Saúde"
+        },
+        {
+          "ticker": "USIM5",
+          "weight": 0.2,
+          "sector": "Siderurgia"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "aggressive",
+        "horizon": "medium",
+        "objective": "carteira concentrada com forte exposição a siderurgia e saúde"
+      }
+    },
+    {
+      "id": "itaubba-top5-2026-01",
+      "broker": "Itaú BBA",
+      "carteira_name": "Top 5 Itaú BBA",
+      "as_of": "2026-01-01",
+      "profile_inferred": "aggressive",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "5 ações para começar 2026 com bons retornos, segundo o Itaú BBA",
+        "publisher": "Money Times",
+        "url": "https://www.moneytimes.com.br/5-acoes-para-comecar-2026-com-bons-retornos-segundo-o-itau-bba-carteira-devolveu-565-no-ano-passado-pads/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "AURA33",
+          "weight": 0.2,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "SUZB3",
+          "weight": 0.2,
+          "sector": "Papel e Celulose"
+        },
+        {
+          "ticker": "EQTL3",
+          "weight": 0.2,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "BBDC4",
+          "weight": 0.2,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "ROXO34",
+          "weight": 0.2,
+          "sector": "Financeiro"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "aggressive",
+        "horizon": "medium",
+        "objective": "carteira concentrada Top 5 com estratégia defensiva e balanceamento setorial"
+      }
+    },
+    {
+      "id": "itaubba-top5-2026-04",
+      "broker": "Itaú BBA",
+      "carteira_name": "Top 5 Itaú BBA",
+      "as_of": "2026-04-01",
+      "profile_inferred": "aggressive",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "Carteiras recomendadas de ações para abril de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/04/carteiras-recomendadas-de-acoes-para-abril-de-2026-e-ranking-2",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "AURA33",
+          "weight": 0.2,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "B3SA3",
+          "weight": 0.2,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "ENEV3",
+          "weight": 0.2,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "AXIA3",
+          "weight": 0.2,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.2,
+          "sector": "Energia"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "aggressive",
+        "horizon": "medium",
+        "objective": "carteira concentrada Top 5 com estratégia defensiva e balanceamento setorial"
+      }
+    },
+    {
+      "id": "itaubba-top5-2026-05",
+      "broker": "Itaú BBA",
+      "carteira_name": "Top 5 Itaú BBA",
+      "as_of": "2026-05-01",
+      "profile_inferred": "aggressive",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "Itaú BBA faz duas trocas na carteira com 5 ações favoritas para maio",
+        "publisher": "Money Times",
+        "url": "https://www.moneytimes.com.br/tchau-b3-b3sa3-e-eneva-enev3-itau-bba-faz-duas-trocas-na-sua-carteira-com-5-acoes-favoritas-para-maio-pads/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "AURA33",
+          "weight": 0.2,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "BPAC11",
+          "weight": 0.2,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "EQTL3",
+          "weight": 0.2,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "AXIA3",
+          "weight": 0.2,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.2,
+          "sector": "Energia"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "aggressive",
+        "horizon": "medium",
+        "objective": "carteira concentrada Top 5 com estratégia defensiva e balanceamento setorial"
+      }
+    },
+    {
+      "id": "agora-top10-2026-01",
+      "broker": "Ágora Investimentos",
+      "carteira_name": "Top 10 Ágora",
+      "as_of": "2026-01-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteiras recomendadas de ações para janeiro de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/01/carteiras-recomendadas-de-acoes-para-janeiro-de-2026-e-ranking",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "BPAC11",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "CYRE3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "AXIA6",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "ALOS3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "SBSP3",
+          "weight": 0.1,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "VBBR3",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "SUZB3",
+          "weight": 0.1,
+          "sector": "Papel e Celulose"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "10 ações de research da Ágora com viés de crescimento e dividendos"
+      }
+    },
+    {
+      "id": "agora-top10-2026-03",
+      "broker": "Ágora Investimentos",
+      "carteira_name": "Top 10 Ágora",
+      "as_of": "2026-03-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Petrobras (PETR4) e mais 9 ações para investir em março, segundo a Ágora",
+        "publisher": "Money Times",
+        "url": "https://www.moneytimes.com.br/petrobras-petr4-e-mais-9-acoes-para-investir-em-marco-segundo-a-agora-kda/",
+        "fetched_on": "2026-05-10",
+        "note": "Artigo cita PETR4 com 10% e não especifica pesos das demais; assumimos equal-weight"
+      },
+      "portfolio": [
+        {
+          "ticker": "ALOS3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "AXIA6",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "BPAC11",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "CYRE3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "SBSP3",
+          "weight": 0.1,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "SUZB3",
+          "weight": 0.1,
+          "sector": "Papel e Celulose"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "VBBR3",
+          "weight": 0.1,
+          "sector": "Energia"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "10 ações de research da Ágora com viés de crescimento e dividendos"
+      }
+    },
+    {
+      "id": "agora-top10-2026-05",
+      "broker": "Ágora Investimentos",
+      "carteira_name": "Top 10 Ágora",
+      "as_of": "2026-05-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteiras recomendadas de ações para maio de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/05/carteiras-recomendadas-de-acoes-para-maio-de-2026-e-ranking-2",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "BPAC11",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "ISAE4",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "AXIA6",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "ALOS3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "CSMG3",
+          "weight": 0.1,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "VBBR3",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "SUZB3",
+          "weight": 0.1,
+          "sector": "Papel e Celulose"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "10 ações de research da Ágora com viés de crescimento e dividendos"
+      }
+    },
+    {
+      "id": "agora-arrojada-2026-01",
+      "broker": "Ágora Investimentos",
+      "carteira_name": "Carteira Arrojada Ágora",
+      "as_of": "2026-01-01",
+      "profile_inferred": "aggressive",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteiras recomendadas de ações para janeiro de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/01/carteiras-recomendadas-de-acoes-para-janeiro-de-2026-e-ranking",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "USIM5",
+          "weight": 0.2,
+          "sector": "Siderurgia"
+        },
+        {
+          "ticker": "CSMG3",
+          "weight": 0.2,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "POMO4",
+          "weight": 0.2,
+          "sector": "Industrial"
+        },
+        {
+          "ticker": "RENT3",
+          "weight": 0.2,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "VBBR3",
+          "weight": 0.2,
+          "sector": "Energia"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "aggressive",
+        "horizon": "medium",
+        "objective": "carteira concentrada com 5 nomes de maior risco e potencial"
+      }
+    },
+    {
+      "id": "agora-arrojada-2026-04",
+      "broker": "Ágora Investimentos",
+      "carteira_name": "Carteira Arrojada Ágora",
+      "as_of": "2026-04-01",
+      "profile_inferred": "aggressive",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteiras recomendadas de ações para abril de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/04/carteiras-recomendadas-de-acoes-para-abril-de-2026-e-ranking-2",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "USIM5",
+          "weight": 0.2,
+          "sector": "Siderurgia"
+        },
+        {
+          "ticker": "EMBJ3",
+          "weight": 0.2,
+          "sector": "Industrial"
+        },
+        {
+          "ticker": "POMO4",
+          "weight": 0.2,
+          "sector": "Industrial"
+        },
+        {
+          "ticker": "RENT3",
+          "weight": 0.2,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "B3SA3",
+          "weight": 0.2,
+          "sector": "Financeiro"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "aggressive",
+        "horizon": "medium",
+        "objective": "carteira concentrada com 5 nomes de maior risco e potencial"
+      }
+    },
+    {
+      "id": "agora-arrojada-2026-05",
+      "broker": "Ágora Investimentos",
+      "carteira_name": "Carteira Arrojada Ágora",
+      "as_of": "2026-05-01",
+      "profile_inferred": "aggressive",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteiras recomendadas de ações para maio de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/05/carteiras-recomendadas-de-acoes-para-maio-de-2026-e-ranking-2",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "SBSP3",
+          "weight": 0.2,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "EMBJ3",
+          "weight": 0.2,
+          "sector": "Industrial"
+        },
+        {
+          "ticker": "PINE4",
+          "weight": 0.2,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "RENT3",
+          "weight": 0.2,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "B3SA3",
+          "weight": 0.2,
+          "sector": "Financeiro"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "aggressive",
+        "horizon": "medium",
+        "objective": "carteira concentrada com 5 nomes de maior risco e potencial"
+      }
+    },
+    {
+      "id": "agora-dividendos-2026",
+      "broker": "Ágora Investimentos",
+      "carteira_name": "Carteira Dividendos Ágora",
+      "as_of": "2026-01-01",
+      "profile_inferred": "conservative",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "Dividendos de até 11%: Ágora muda carteira e indica 5 ações para 2026",
+        "publisher": "Seu Dinheiro",
+        "url": "https://www.seudinheiro.com/2026/financas-pessoais/dividendos-de-ate-11-agora-muda-carteira-e-indica-5-acoes-para-2026-cbcb/",
+        "fetched_on": "2026-05-10",
+        "note": "Reportagem detalha 5 ações com 10% cada; carteira original tem 10 ativos mas restante não foi divulgado. Renormalizamos para soma=1 mantendo proporções iguais"
+      },
+      "portfolio": [
+        {
+          "ticker": "ALOS3",
+          "weight": 0.2,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "CXSE3",
+          "weight": 0.2,
+          "sector": "Seguros"
+        },
+        {
+          "ticker": "ISAE4",
+          "weight": 0.2,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "ITUB4",
+          "weight": 0.2,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "TIMS3",
+          "weight": 0.2,
+          "sector": "Telecomunicações"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "conservative",
+        "horizon": "long",
+        "objective": "renda recorrente via dividendos com expected DY médio de 7,4% em 2026"
+      }
+    },
+    {
+      "id": "terra-2026-04",
+      "broker": "Terra Investimentos",
+      "carteira_name": "Carteira Mensal Terra",
+      "as_of": "2026-04-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "Carteiras recomendadas de ações para abril de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/04/carteiras-recomendadas-de-acoes-para-abril-de-2026-e-ranking-2",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "KLBN11",
+          "weight": 0.1,
+          "sector": "Papel e Celulose"
+        },
+        {
+          "ticker": "RENT3",
+          "weight": 0.1,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "SBSP3",
+          "weight": 0.1,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "LREN3",
+          "weight": 0.1,
+          "sector": "Varejo"
+        },
+        {
+          "ticker": "HYPE3",
+          "weight": 0.1,
+          "sector": "Saúde"
+        },
+        {
+          "ticker": "BBDC4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "AXIA3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "VBBR3",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "POMO4",
+          "weight": 0.1,
+          "sector": "Industrial"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "10 ações equal-weighted com diversificação setorial"
+      }
+    },
+    {
+      "id": "terra-2026-05",
+      "broker": "Terra Investimentos",
+      "carteira_name": "Carteira Mensal Terra",
+      "as_of": "2026-05-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "Carteiras recomendadas de ações para maio de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/05/carteiras-recomendadas-de-acoes-para-maio-de-2026-e-ranking-2",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "KLBN11",
+          "weight": 0.1,
+          "sector": "Papel e Celulose"
+        },
+        {
+          "ticker": "CXSE3",
+          "weight": 0.1,
+          "sector": "Seguros"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "MOTV3",
+          "weight": 0.1,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "LREN3",
+          "weight": 0.1,
+          "sector": "Varejo"
+        },
+        {
+          "ticker": "HYPE3",
+          "weight": 0.1,
+          "sector": "Saúde"
+        },
+        {
+          "ticker": "BBDC4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "AXIA3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "VBBR3",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "POMO4",
+          "weight": 0.1,
+          "sector": "Industrial"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "10 ações equal-weighted com diversificação setorial"
+      }
+    },
+    {
+      "id": "terra-top5-2026-03",
+      "broker": "Terra Investimentos",
+      "carteira_name": "Carteira Gráfica Semanal Top 5 Terra",
+      "as_of": "2026-03-01",
+      "profile_inferred": "aggressive",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "Carteira semanal Terra mantém 5 ações e supera Ibovespa",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/03/recomendacoes-de-acoes-da-terra-investimentos",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "CMIG4",
+          "weight": 0.2,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "JBSS32",
+          "weight": 0.2,
+          "sector": "Alimentos"
+        },
+        {
+          "ticker": "PSSA3",
+          "weight": 0.2,
+          "sector": "Seguros"
+        },
+        {
+          "ticker": "HYPE3",
+          "weight": 0.2,
+          "sector": "Saúde"
+        },
+        {
+          "ticker": "IGTI11",
+          "weight": 0.2,
+          "sector": "Imobiliário"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "aggressive",
+        "horizon": "short",
+        "objective": "carteira gráfica semanal com 5 nomes baseados em análise técnica"
+      }
+    },
+    {
+      "id": "planner-2026-05",
+      "broker": "Planner Corretora",
+      "carteira_name": "Carteira Mensal Planner",
+      "as_of": "2026-05-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteiras recomendadas de ações para maio de 2026 e ranking",
+        "publisher": "ADVFN News",
+        "url": "https://br.advfn.com/jornal/2026/05/carteiras-recomendadas-de-acoes-para-maio-de-2026-e-ranking-2",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "CPFE3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "FLRY3",
+          "weight": 0.1,
+          "sector": "Saúde"
+        },
+        {
+          "ticker": "LREN3",
+          "weight": 0.1,
+          "sector": "Varejo"
+        },
+        {
+          "ticker": "PSSA3",
+          "weight": 0.1,
+          "sector": "Seguros"
+        },
+        {
+          "ticker": "MULT3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "PRIO3",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "VIVT3",
+          "weight": 0.1,
+          "sector": "Telecomunicações"
+        },
+        {
+          "ticker": "SBSP3",
+          "weight": 0.1,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "WIZC3",
+          "weight": 0.1,
+          "sector": "Seguros"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "carteira diversificada da Planner com viés defensivo e dividendos"
+      }
+    },
+    {
+      "id": "xp-top-10-2024-09",
+      "broker": "XP Investimentos",
+      "carteira_name": "Top 10 Ações XP",
+      "as_of": "2024-09-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "XP mexe na carteira Top 10 de setembro; veja o que mudou",
+        "publisher": "Money Times",
+        "url": "https://www.moneytimes.com.br/xp-mexe-na-carteira-top-10-de-setembro-veja-o-que-mudou/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "JBSS32",
+          "weight": 0.1,
+          "sector": "Alimentos"
+        },
+        {
+          "ticker": "EQTL3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "RDOR3",
+          "weight": 0.1,
+          "sector": "Saúde"
+        },
+        {
+          "ticker": "GGBR4",
+          "weight": 0.1,
+          "sector": "Siderurgia"
+        },
+        {
+          "ticker": "IGTI11",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "GMAT3",
+          "weight": 0.1,
+          "sector": "Varejo"
+        },
+        {
+          "ticker": "PRIO3",
+          "weight": 0.1,
+          "sector": "Energia"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "valorização de capital via seleção das 10 principais teses do research da XP"
+      }
+    },
+    {
+      "id": "xp-top-10-2024-10",
+      "broker": "XP Investimentos",
+      "carteira_name": "Top 10 Ações XP",
+      "as_of": "2024-10-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "XP troca Grupo Mateus por Gerdau na Top 10 de outubro",
+        "publisher": "Money Times",
+        "url": "https://www.moneytimes.com.br/xp-troca-grupo-mateus-por-gerdau-na-top-10-de-outubro/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "JBSS32",
+          "weight": 0.1,
+          "sector": "Alimentos"
+        },
+        {
+          "ticker": "EQTL3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "RDOR3",
+          "weight": 0.1,
+          "sector": "Saúde"
+        },
+        {
+          "ticker": "GGBR4",
+          "weight": 0.1,
+          "sector": "Siderurgia"
+        },
+        {
+          "ticker": "IGTI11",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "PRIO3",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "RENT3",
+          "weight": 0.1,
+          "sector": "Mobilidade"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "valorização de capital via seleção das 10 principais teses do research da XP"
+      }
+    },
+    {
+      "id": "xp-top-10-2024-11",
+      "broker": "XP Investimentos",
+      "carteira_name": "Top 10 Ações XP",
+      "as_of": "2024-11-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "XP remove JBS e adiciona Suzano na Top 10 de novembro",
+        "publisher": "Money Times",
+        "url": "https://www.moneytimes.com.br/xp-remove-jbs-e-adiciona-suzano-na-top-10-de-novembro-veja-a-carteira/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "SUZB3",
+          "weight": 0.1,
+          "sector": "Papel e Celulose"
+        },
+        {
+          "ticker": "EQTL3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "RDOR3",
+          "weight": 0.1,
+          "sector": "Saúde"
+        },
+        {
+          "ticker": "GGBR4",
+          "weight": 0.1,
+          "sector": "Siderurgia"
+        },
+        {
+          "ticker": "CYRE3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "SMFT3",
+          "weight": 0.1,
+          "sector": "Serviços"
+        },
+        {
+          "ticker": "RENT3",
+          "weight": 0.1,
+          "sector": "Mobilidade"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "valorização de capital via seleção das 10 principais teses do research da XP"
+      }
+    },
+    {
+      "id": "xp-dividendos-2024-10",
+      "broker": "XP Investimentos",
+      "carteira_name": "Top Dividendos XP",
+      "as_of": "2024-10-01",
+      "profile_inferred": "conservative",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "XP mantém carteira de dividendos para outubro; confira as 10 ações",
+        "publisher": "Suno Notícias",
+        "url": "https://www.suno.com.br/noticias/xp-mantem-carteira-dividendos-outubro-confira-acoes/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "BBAS3",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "BRAP4",
+          "weight": 0.1,
+          "sector": "Holding Mineração"
+        },
+        {
+          "ticker": "CURY3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "LREN3",
+          "weight": 0.1,
+          "sector": "Varejo"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "RECV3",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "VIVT3",
+          "weight": 0.1,
+          "sector": "Telecomunicações"
+        },
+        {
+          "ticker": "TIMS3",
+          "weight": 0.1,
+          "sector": "Telecomunicações"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "conservative",
+        "horizon": "long",
+        "objective": "geração de renda passiva via ações com Dividend Yield atrativo e previsibilidade de caixa"
+      }
+    },
+    {
+      "id": "btg-10sim-2024-10",
+      "broker": "BTG Pactual",
+      "carteira_name": "Carteira 10SIM BTG",
+      "as_of": "2024-10-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "BTG Pactual mexe na carteira 10SIM de outubro e inclui Vale e Ambev",
+        "publisher": "Infomoney",
+        "url": "https://www.infomoney.com.br/mercados/btg-pactual-mexe-na-carteira-10sim-de-outubro-e-inclui-vale-e-ambev/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "VIVT3",
+          "weight": 0.1,
+          "sector": "Telecomunicações"
+        },
+        {
+          "ticker": "AXIA6",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "JBSS32",
+          "weight": 0.1,
+          "sector": "Alimentos"
+        },
+        {
+          "ticker": "BBSE3",
+          "weight": 0.1,
+          "sector": "Seguros"
+        },
+        {
+          "ticker": "CPFE3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "GGBR4",
+          "weight": 0.1,
+          "sector": "Siderurgia"
+        },
+        {
+          "ticker": "EQTL3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "superar o Ibovespa através de seleção tática mensal de 10 ativos de alta liquidez"
+      }
+    },
+    {
+      "id": "btg-10sim-2024-11",
+      "broker": "BTG Pactual",
+      "carteira_name": "Carteira 10SIM BTG",
+      "as_of": "2024-11-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "BTG inclui Direcional e Equatorial na 10SIM de novembro",
+        "publisher": "Infomoney",
+        "url": "https://www.infomoney.com.br/mercados/btg-inclui-direcional-e-equatorial-na-10sim-de-novembro/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "ROXO34",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "RDOR3",
+          "weight": 0.1,
+          "sector": "Saúde"
+        },
+        {
+          "ticker": "EMBJ3",
+          "weight": 0.1,
+          "sector": "Industrial"
+        },
+        {
+          "ticker": "RENT3",
+          "weight": 0.1,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "CPLE3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "SMFT3",
+          "weight": 0.1,
+          "sector": "Serviços"
+        },
+        {
+          "ticker": "CYRE3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "DIRR3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "EQTL3",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "superar o Ibovespa através de seleção tática mensal de 10 ativos de alta liquidez"
+      }
+    },
+    {
+      "id": "bb-dividendos-2024-09",
+      "broker": "BB Investimentos",
+      "carteira_name": "Carteira BB Dividendos",
+      "as_of": "2024-09-01",
+      "profile_inferred": "conservative",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Carteira BB Dividendos para setembro de 2024",
+        "publisher": "BB Investimentos",
+        "url": "https://investalk.bb.com.br/noticias/onde-investir/dividendos-setembro-2024",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "ABCB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "BRAP4",
+          "weight": 0.1,
+          "sector": "Holding Mineração"
+        },
+        {
+          "ticker": "CMIN3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "CSMG3",
+          "weight": 0.1,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "TAEE11",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "TIMS3",
+          "weight": 0.1,
+          "sector": "Telecomunicações"
+        },
+        {
+          "ticker": "ISAE4",
+          "weight": 0.1,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "VBBR3",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "VIVT3",
+          "weight": 0.1,
+          "sector": "Telecomunicações"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "conservative",
+        "horizon": "long",
+        "objective": "foco em ativos com histórico sustentável de distribuição de proventos e forte geração de caixa"
+      }
+    },
+    {
+      "id": "agora-top-10-2024-10",
+      "broker": "Ágora Investimentos",
+      "carteira_name": "Top 10 Ágora",
+      "as_of": "2024-10-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Ágora coloca Sabesp na Top 10 de outubro; veja a lista",
+        "publisher": "Estadão E-Investidor",
+        "url": "https://einvestidor.estadao.com.br/investimentos/agora-investimentos-carteira-recomendada-outubro-2024/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "BPAC11",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "CYRE3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "ENEV3",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "ECOR3",
+          "weight": 0.1,
+          "sector": "Concessões"
+        },
+        {
+          "ticker": "JBSS32",
+          "weight": 0.1,
+          "sector": "Alimentos"
+        },
+        {
+          "ticker": "RENT3",
+          "weight": 0.1,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "SBSP3",
+          "weight": 0.1,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "VIVT3",
+          "weight": 0.1,
+          "sector": "Telecomunicações"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "carteira diversificada com 10 ativos buscando superar o benchmark Ibovespa"
+      }
+    },
+    {
+      "id": "safra-top-10-2024-09",
+      "broker": "Safra",
+      "carteira_name": "Safra Top 10 Ações",
+      "as_of": "2024-09-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "explicit_from_source",
+      "source": {
+        "title": "Safra mexe na carteira Top 10 de setembro e inclui Itaúsa e Bradesco",
+        "publisher": "Portal Safra",
+        "url": "https://www.safra.com.br/analises/acoes/safra-mexe-na-carteira-top-10-de-setembro.htm",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "ITSA4",
+          "weight": 0.16,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "CYRE3",
+          "weight": 0.12,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "RAIL3",
+          "weight": 0.12,
+          "sector": "Mobilidade"
+        },
+        {
+          "ticker": "PRIO3",
+          "weight": 0.12,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "AXIA3",
+          "weight": 0.08,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "BBDC4",
+          "weight": 0.08,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "IGTI11",
+          "weight": 0.08,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "VIVA3",
+          "weight": 0.08,
+          "sector": "Varejo"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.06,
+          "sector": "Energia"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "seleção concentrada nas 10 principais teses do Safra com rebalanceamento tático de pesos"
+      }
+    },
+    {
+      "id": "itau-top-5-2024-10",
+      "broker": "Itaú BBA",
+      "carteira_name": "Top 5 Itaú BBA",
+      "as_of": "2024-10-01",
+      "profile_inferred": "aggressive",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Itaú BBA mexe no Top 5 de outubro e inclui Gerdau",
+        "publisher": "Money Times",
+        "url": "https://www.moneytimes.com.br/itau-bba-mexe-no-top-5-de-outubro-e-inclui-gerdau/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "PRIO3",
+          "weight": 0.2,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "EQTL3",
+          "weight": 0.2,
+          "sector": "Energia Elétrica"
+        },
+        {
+          "ticker": "DIRR3",
+          "weight": 0.2,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "SANB11",
+          "weight": 0.2,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "GGBR4",
+          "weight": 0.2,
+          "sector": "Siderurgia"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "aggressive",
+        "horizon": "medium",
+        "objective": "carteira concentrada com as 5 ações de maior convicção e potencial de curto/médio prazo"
+      }
+    },
+    {
+      "id": "bb-5mais-2024-09",
+      "broker": "BB Investimentos",
+      "carteira_name": "Carteira BB 5+",
+      "as_of": "2024-09-01",
+      "profile_inferred": "aggressive",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "BB Investimentos divulga carteira 5+ de setembro",
+        "publisher": "Investing.com",
+        "url": "https://br.investing.com/news/stock-market-news/bb-investimentos-divulga-carteira-5-de-setembro-1300000",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "FLRY3",
+          "weight": 0.2,
+          "sector": "Saúde"
+        },
+        {
+          "ticker": "PCAR3",
+          "weight": 0.2,
+          "sector": "Varejo"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.2,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "SMTO3",
+          "weight": 0.2,
+          "sector": "Agronegócio"
+        },
+        {
+          "ticker": "SUZB3",
+          "weight": 0.2,
+          "sector": "Papel e Celulose"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "aggressive",
+        "horizon": "medium",
+        "objective": "carteira concentrada com 5 nomes de alto potencial e volatilidade para o mês"
+      }
+    },
+    {
+      "id": "santander-valor-2024-11",
+      "broker": "Santander",
+      "carteira_name": "Carteira Valor Santander",
+      "as_of": "2024-11-01",
+      "profile_inferred": "moderate",
+      "weights_attribution": "assumed_equal_weight",
+      "source": {
+        "title": "Santander troca Lojas Renner por RD Saúde na Carteira Valor de novembro",
+        "publisher": "Money Times",
+        "url": "https://www.moneytimes.com.br/santander-troca-lojas-renner-por-rd-saude-na-carteira-valor-de-novembro/",
+        "fetched_on": "2026-05-10"
+      },
+      "portfolio": [
+        {
+          "ticker": "BBDC4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "CYRE3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "ITUB4",
+          "weight": 0.1,
+          "sector": "Financeiro"
+        },
+        {
+          "ticker": "MULT3",
+          "weight": 0.1,
+          "sector": "Imobiliário"
+        },
+        {
+          "ticker": "PETR4",
+          "weight": 0.1,
+          "sector": "Energia"
+        },
+        {
+          "ticker": "RDOR3",
+          "weight": 0.1,
+          "sector": "Saúde"
+        },
+        {
+          "ticker": "SBSP3",
+          "weight": 0.1,
+          "sector": "Saneamento"
+        },
+        {
+          "ticker": "TOTS3",
+          "weight": 0.1,
+          "sector": "Tecnologia"
+        },
+        {
+          "ticker": "VALE3",
+          "weight": 0.1,
+          "sector": "Mineração"
+        },
+        {
+          "ticker": "WEGE3",
+          "weight": 0.1,
+          "sector": "Industrial"
+        }
+      ],
+      "profile": {
+        "risk_tolerance": "moderate",
+        "horizon": "long",
+        "objective": "superar o Ibovespa através de uma seleção de 10 ativos de qualidade com foco em valor"
+      }
+    }
+  ]
+}
