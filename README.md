@@ -126,17 +126,3 @@ src/mafin/
 scripts/         # smoke, generate_snapshot, generate_workload, run_baselines, benchmark_models
 tests/           # Suite unitária (pytest, offline)
 ```
-
-## Status por fase do roadmap
-
-| Fase | Status | Pendências |
-|---|---|---|
-| 1 — MVP estável | ✅ | — |
-| 2 — Arquitetura multiagente base | ✅ | — |
-| 3 — Dados e carteiras | ⚠️ | Materializar workload congelado de 30–50 carteiras |
-| 4 — Debate B4-H/B4-R | ✅ | Fixar rota oficial após benchmark |
-| 5 — Tracing + baselines + runner | ✅ | Executar baselines fim a fim sobre o workload |
-| 6 — Pipeline de avaliação | ❌ | A fazer |
-| 7 — Análise e paper | ❌ | A fazer |
-
-Detalhamento em `ROADMAP.md`.
