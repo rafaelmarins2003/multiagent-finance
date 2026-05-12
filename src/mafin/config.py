@@ -33,6 +33,29 @@ MODEL_ROUTE_PRESET = os.getenv("MODEL_ROUTE_PRESET", "b4r")
 
 BRAVE_SEARCH_API_KEY = os.getenv("BRAVE_SEARCH_API_KEY")
 TRACE_DB_PATH = os.getenv("TRACE_DB_PATH", "data/traces/mafin.sqlite3")
+STRUCTURED_OUTPUT_MODE = os.getenv("STRUCTURED_OUTPUT_MODE", "manual").strip().lower()
+STRUCTURED_OUTPUT_MAX_RETRIES = max(1, int(os.getenv("STRUCTURED_OUTPUT_MAX_RETRIES", "2")))
+STRUCTURED_OUTPUT_RETRY_BASE_SECONDS = max(
+    0.0,
+    float(os.getenv("STRUCTURED_OUTPUT_RETRY_BASE_SECONDS", "8")),
+)
+STRUCTURED_OUTPUT_RETRY_MAX_SECONDS = max(
+    STRUCTURED_OUTPUT_RETRY_BASE_SECONDS,
+    float(os.getenv("STRUCTURED_OUTPUT_RETRY_MAX_SECONDS", "90")),
+)
+OLLAMA_TIMEOUT_SECONDS = float(os.getenv("OLLAMA_TIMEOUT_SECONDS", "240"))
+OLLAMA_NUM_PREDICT = int(os.getenv("OLLAMA_NUM_PREDICT", "2048"))
+LLM_MAX_CONCURRENCY = max(1, int(os.getenv("LLM_MAX_CONCURRENCY", "1")))
+
+_OLLAMA_REASONING_ENV = os.getenv("OLLAMA_REASONING", "false").strip().lower()
+if _OLLAMA_REASONING_ENV in {"", "none", "null", "auto"}:
+    OLLAMA_REASONING: bool | str | None = None
+elif _OLLAMA_REASONING_ENV in {"1", "true", "yes", "on"}:
+    OLLAMA_REASONING = True
+elif _OLLAMA_REASONING_ENV in {"0", "false", "no", "off"}:
+    OLLAMA_REASONING = False
+else:
+    OLLAMA_REASONING = _OLLAMA_REASONING_ENV
 
 
 @dataclass(frozen=True)

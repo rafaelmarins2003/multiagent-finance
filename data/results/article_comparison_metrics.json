@@ -1,0 +1,178 @@
+{
+  "b1": {
+    "cases": 20,
+    "classifications": {
+      "atencao": 17,
+      "estavel": 3
+    },
+    "conclusive_rate": 1.0,
+    "alert_rate": 0.85,
+    "consensus_accuracy_proxy": 0.6111111111111112,
+    "consensus_cases": 18,
+    "detail_factors_avg": 9.9,
+    "justification_words_avg": 68.05,
+    "total_calls": 27,
+    "ok_calls": 20,
+    "call_errors": 7,
+    "latency_avg_seconds": 43.4220433,
+    "latency_p50_seconds": 23.091752,
+    "latency_p95_seconds": 125.12691705000005,
+    "tokens_per_case": 15850.4,
+    "official_priced_cost_usd": 0.14330857499999997,
+    "official_priced_cost_per_case_usd": 0.0071654287499999985,
+    "unpriced_tokens": 0,
+    "ollama_usage_units_per_case": 63401.6,
+    "calls_by_model": {
+      "deepseek-v4-pro": 20
+    },
+    "tokens_by_model": {
+      "deepseek-v4-pro": 317008
+    },
+    "official_cost_by_model": {
+      "deepseek-v4-pro": 0.14330857499999997
+    }
+  },
+  "b2": {
+    "cases": 20,
+    "classifications": {
+      "atencao": 18,
+      "estavel": 1,
+      "risco_elevado": 1
+    },
+    "conclusive_rate": 1.0,
+    "alert_rate": 0.95,
+    "consensus_accuracy_proxy": 0.7777777777777778,
+    "consensus_cases": 18,
+    "detail_factors_avg": 20,
+    "justification_words_avg": 87.1,
+    "total_calls": 133,
+    "ok_calls": 100,
+    "call_errors": 33,
+    "latency_avg_seconds": 191.9041915,
+    "latency_p50_seconds": 137.386985,
+    "latency_p95_seconds": 563.0095946,
+    "tokens_per_case": 79426.7,
+    "official_priced_cost_usd": 0.7174476750000004,
+    "official_priced_cost_per_case_usd": 0.03587238375000002,
+    "unpriced_tokens": 0,
+    "ollama_usage_units_per_case": 317706.8,
+    "calls_by_model": {
+      "deepseek-v4-pro": 100
+    },
+    "tokens_by_model": {
+      "deepseek-v4-pro": 1588534
+    },
+    "official_cost_by_model": {
+      "deepseek-v4-pro": 0.7174476750000004
+    }
+  },
+  "b3": {
+    "cases": 20,
+    "classifications": {
+      "atencao": 14,
+      "risco_elevado": 6
+    },
+    "conclusive_rate": 1.0,
+    "alert_rate": 1.0,
+    "consensus_accuracy_proxy": 1.0,
+    "consensus_cases": 18,
+    "detail_factors_avg": 9.8,
+    "justification_words_avg": 102.1,
+    "total_calls": 142,
+    "ok_calls": 120,
+    "call_errors": 22,
+    "latency_avg_seconds": 263.44777045,
+    "latency_p50_seconds": 246.1317065,
+    "latency_p95_seconds": 369.5962663500002,
+    "tokens_per_case": 31511.8,
+    "official_priced_cost_usd": 0.26066200500000003,
+    "official_priced_cost_per_case_usd": 0.013033100250000002,
+    "unpriced_tokens": 125884,
+    "ollama_usage_units_per_case": 113458.8,
+    "calls_by_model": {
+      "nemotron-3-super": 40,
+      "deepseek-v4-pro": 80
+    },
+    "tokens_by_model": {
+      "nemotron-3-super": 125884,
+      "deepseek-v4-pro": 504352
+    },
+    "official_cost_by_model": {
+      "deepseek-v4-pro": 0.26066200500000003
+    }
+  },
+  "b4h": {
+    "cases": 20,
+    "classifications": {
+      "atencao": 9,
+      "inconclusiva": 5,
+      "desalinhada": 1,
+      "risco_elevado": 5
+    },
+    "conclusive_rate": 0.75,
+    "alert_rate": 0.75,
+    "consensus_accuracy_proxy": 0.7777777777777778,
+    "consensus_cases": 18,
+    "detail_factors_avg": 8.4,
+    "justification_words_avg": 98.95,
+    "total_calls": 199,
+    "ok_calls": 160,
+    "call_errors": 39,
+    "latency_avg_seconds": 439.3476617,
+    "latency_p50_seconds": 340.9966385,
+    "latency_p95_seconds": 814.3462349499999,
+    "tokens_per_case": 49160.1,
+    "official_priced_cost_usd": 0.49908115500000005,
+    "official_priced_cost_per_case_usd": 0.02495405775,
+    "unpriced_tokens": 0,
+    "ollama_usage_units_per_case": 196640.4,
+    "calls_by_model": {
+      "deepseek-v4-pro": 160
+    },
+    "tokens_by_model": {
+      "deepseek-v4-pro": 983202
+    },
+    "official_cost_by_model": {
+      "deepseek-v4-pro": 0.49908115500000005
+    }
+  },
+  "b4r": {
+    "cases": 20,
+    "classifications": {
+      "inconclusiva": 8,
+      "atencao": 6,
+      "risco_elevado": 6
+    },
+    "conclusive_rate": 0.6,
+    "alert_rate": 0.6,
+    "consensus_accuracy_proxy": 0.6111111111111112,
+    "consensus_cases": 18,
+    "detail_factors_avg": 8.8,
+    "justification_words_avg": 93.5,
+    "total_calls": 178,
+    "ok_calls": 160,
+    "call_errors": 18,
+    "latency_avg_seconds": 342.48726755,
+    "latency_p50_seconds": 311.221728,
+    "latency_p95_seconds": 578.0736971500003,
+    "tokens_per_case": 49359.7,
+    "official_priced_cost_usd": 0.41642941499999997,
+    "official_priced_cost_per_case_usd": 0.020821470749999998,
+    "unpriced_tokens": 126013,
+    "ollama_usage_units_per_case": 154661.4,
+    "calls_by_model": {
+      "nemotron-3-super": 40,
+      "deepseek-v4-pro": 80,
+      "minimax-m2.7": 40
+    },
+    "tokens_by_model": {
+      "nemotron-3-super": 126013,
+      "deepseek-v4-pro": 559420,
+      "minimax-m2.7": 301761
+    },
+    "official_cost_by_model": {
+      "deepseek-v4-pro": 0.2860860150000001,
+      "minimax-m2.7": 0.13034340000000005
+    }
+  }
+}

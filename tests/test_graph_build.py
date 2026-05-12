@@ -16,6 +16,13 @@ def test_build_graph_without_debate_compiles():
     assert {"technical", "sentiment", "fundamental", "macro", "risk", "moderator"}.issubset(nodes)
 
 
+def test_build_graph_with_parallel_specialists_compiles():
+    graph = build_graph(ROUTES, enable_debate=True, parallel_specialists=True)
+    nodes = set(graph.get_graph().nodes.keys())
+    expected = {"technical", "sentiment", "fundamental", "macro", "risk", "debate", "moderator"}
+    assert expected.issubset(nodes)
+
+
 def test_build_graph_default_enables_debate():
     graph = build_graph()
     nodes = set(graph.get_graph().nodes.keys())

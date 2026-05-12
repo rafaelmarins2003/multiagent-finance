@@ -1,0 +1,56 @@
+\section{Introdução}
+\label{sec:intro}
+
+Modelos de linguagem de grande escala (LLMs) vêm sendo incorporados a sistemas
+multiagente para apoiar análise financeira: interpretação de notícias, leitura
+de indicadores, construção de teses de investimento e tomada de decisão em
+ambientes de trading. O volume de propostas cresce, mas uma lacuna
+metodológica permanece. Grande parte dos trabalhos atribui ganhos à presença
+de múltiplos agentes ou ao uso de debate sem comparar os resultados contra
+baselines fortes de agente único submetidos ao mesmo orçamento de
+computação. Fica difícil, então, distinguir o que vem da arquitetura
+multiagente do que vem, simplesmente, de um modelo mais capaz acompanhado
+de prompts mais bem feitos.
+
+A questão pesa especialmente no contexto financeiro. Uma resposta que soa
+convincente pode não significar maior personalização ao investidor, melhor
+cobertura dos fatores de risco da carteira ou menor taxa de erro factual
+sobre os ativos analisados. Soma-se a isso o fato de que a maior parte dos
+sistemas existentes prioriza recomendação de ativos ou decisão de compra e
+venda, deixando em segundo plano um problema mais frequente na prática:
+diagnosticar uma carteira já constituída em relação ao perfil de risco, ao
+horizonte e ao objetivo do usuário. Diagnosticar não é o mesmo que
+recomendar. O objetivo deixa de ser propor movimentações sobre os ativos e
+passa a ser explicar o estado atual da carteira, apontar fatores de
+atenção e sinalizar quando a evidência disponível é insuficiente.
+
+Este trabalho propõe uma arquitetura multiagente baseada em LLMs para
+diagnóstico personalizado de carteiras financeiras. A saída do sistema é
+uma classificação discreta da carteira frente ao perfil informado, com
+justificativa textual, fatores positivos, fatores negativos e nível de
+confiança. Não há recomendações de compra, venda ou rebalanceamento, e o
+sistema não assume papel de aconselhamento financeiro. Para sustentar
+afirmações sobre o impacto da arquitetura, a proposta é avaliada contra um
+conjunto de baselines que inclui agente único ingênuo, agente único com
+raciocínio estruturado e self-consistency, e multiagente sem debate, sob
+mesma entrada e mesmo formato de saída.
+
+As principais contribuições deste trabalho são:
+
+\begin{itemize}
+  \item uma arquitetura multiagente para diagnóstico personalizado de
+  carteiras, organizada em agentes especialistas (técnico, fundamentalista,
+  sentimento, macroeconômico e de risco), um par adversarial Bull/Bear e um
+  moderador que produz a classificação final;
+  \item um mecanismo de debate adversarial Bull/Bear com síntese por
+  moderador e suporte a roteamento heterogêneo de modelos por papel, que
+  permite isolar o efeito da arquitetura do efeito do modelo subjacente;
+  \item uma metodologia de avaliação que compara o sistema proposto contra
+  baselines fortes de agente único, self-consistency e multiagente sem
+  debate, usando entrada congelada e saída estruturada para garantir
+  comparações controladas;
+  \item um pipeline de rastreabilidade que registra, por execução, chamadas
+  realizadas, latência, tokens, erros de parsing e respostas estruturadas,
+  permitindo reproduzir e auditar tanto a arquitetura proposta quanto os
+  baselines.
+\end{itemize}

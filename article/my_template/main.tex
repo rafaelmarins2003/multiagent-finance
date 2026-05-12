@@ -1,0 +1,195 @@
+\documentclass[portuguese]{sbc2025}%
+
+%\usepackage{graphicx}% já está incluido na classe
+%\usepackage[utf8]{inputenc} % obsoleto, desnecessário
+
+\usepackage[misc,geometry]{ifsym}
+
+%%%%  %\usepackage{fontspec}
+
+%% Os problemas com a classe eram originados por carregarem ambos os
+%% pacotes fontenc e fontspec simultaneamente. Agora a classe detecta
+%% qual engine está em uso e se for o pdflates então carrega o
+%% fontenc. Se forem o xelatex ou lualatex então carrega o
+%% fontspec. Eu particularemnte prefiro o lualatex ou o xetex
+
+
+% \usepackage{fontawesome} %%% incluido na classe. Desnecessário
+% chamá-lo aqui
+
+
+%%%% \usepackage{academicons}
+%%%% outro encrenqueiro que se tornou desnecessario. Deste typeface só
+%%%% se usava o glifo do orcid e o codigo interno bombava.
+%%%% Substitui pelo pacote orcidlink (carregado internamete na classe)
+%%%% e consertei o codigo na classe.
+
+
+%\usepackage{color} % carregada dentro da classe
+%\usepackage{hyperref} % carregada dentro da classe
+
+\usepackage{aas_macros}
+\usepackage[bottom]{footmisc}
+
+%\usepackage{supertabular}
+%\usepackage{multicol}
+%\usepackage{multirow}
+%% O pacote tabularray é muito melhor para
+% a criacao de tabela complexas e/ou loooongas; tudo de modo simples.
+%% Torna o uso de multicol e multirow desnecessarios
+
+% \usepackage{tabularray} % não utilizado nesta versão.
+
+
+\usepackage{afterpage}
+\usepackage{url}
+\usepackage{pifont}
+
+
+\setcitestyle{square}
+
+
+\definecolor{engtitle}{rgb}{0.5,0.5,0.5}
+\definecolor{orcidlogo}{rgb}{0.37,0.48,0.13}
+\definecolor{unilogo}{rgb}{0.16, 0.26, 0.58}
+\definecolor{maillogo}{rgb}{0.58, 0.16, 0.26}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.0}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+%\hypersetup{colorlinks,citecolor=blue,linkcolor=blue,urlcolor=blue}
+
+%%%%%%% IMPORTANT: We disable hyperlinks by default with this line, to avoid the error "\pdfendlink ended up in different nesting level" while writing.
+%\hypersetup{draft}
+
+\jid{ENIAC}
+\jtitle{Anais do Encontro Nacional de Inteligência Artificial e Computacional, 202X, XX:1}
+\issn{XXXX-XXXX}
+\doi{10.5753/eniac.202X.XXXXXX}
+\copyrightstatement{This work is licensed under a Creative Commons Attribution 4.0 International License}
+\jyear{202X}
+
+\category{Artigo de Pesquisa/Research Paper}
+\title[Diagnóstico Personalizado de Carteiras com LLMs Multiagente]{Diagnóstico Personalizado de Carteiras Financeiras com Sistemas Multiagente baseados em LLMs}
+\engtitle{\textcolor{engtitle}{Personalized Financial Portfolio Diagnosis with LLM-based Multi-Agent Systems}}
+
+%THE ORCID IS MANDATORY FOR EACH AUTHOR IN JBCS
+\author[Florenzano et al. 202X]{
+\affil{\textbf{Rafael Marins Florenzano}~\orcidlink{0009-0003-0347-7795}~\textcolor{blue}{\faEnvelopeO}~~[{Universidade de Fortaleza (UNIFOR)}~|\href{mailto:rafaelmarins2003@gmail.com}{~{\textit{rafaelmarins2003@gmail.com}}}~]}
+
+\affil{\textbf{Rian Maia de Freitas}~\orcidlink{0009-0005-4083-7432}~~[{Universidade de Fortaleza (UNIFOR)}~|\href{mailto:rianmaiaf@gmail.com}{{\textit{rianmaiaf@gmail.com}}}~]}
+
+}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\maketitle
+
+\begin{mail}
+Universidade de Fortaleza (UNIFOR), Av. Washington Soares, 1321, Edson Queiroz, Fortaleza, CE, 60811-905, Brasil.
+\end{mail}
+
+
+\begin{abstract-pt}
+Sistemas multiagente baseados em modelos de linguagem têm sido propostos
+para análise financeira, mas seus ganhos sobre baselines fortes de agente
+único permanecem incertos. Este artigo propõe uma arquitetura multiagente
+para diagnóstico personalizado de carteiras financeiras, combinando agentes
+especialistas (técnico, fundamentalista, sentimento, macroeconômico e de
+risco), debate adversarial Bull/Bear com moderação, roteamento heterogêneo
+de modelos por papel e saídas estruturadas. A avaliação compara a arquitetura
+contra quatro baselines, incluindo agente único com self-consistency e
+multiagente sem debate. O estudo inclui uma validação estrutural em 43
+carteiras brasileiras e uma comparação principal entre técnicas em 20
+carteiras enriquecidas com dados de mercado. No cenário enriquecido, o
+baseline multiagente sem debate apresenta o melhor equilíbrio entre
+concordância com consenso, diagnósticos conclusivos e custo proxy. O
+roteamento heterogêneo reduz custo e latência em relação ao debate
+homogêneo, mas ainda não demonstra ganho claro de acurácia proxy.
+\end{abstract-pt}
+
+\begin{abstract-en}
+Large language model based multi-agent systems have been proposed for
+financial analysis, but their gains over strong single-agent baselines
+remain unclear. This paper proposes a multi-agent architecture for
+personalized portfolio diagnosis, combining specialist agents (technical,
+fundamental, sentiment, macroeconomic and risk), an adversarial bull/bear
+debate with moderation, heterogeneous model routing per role, and
+structured outputs. The architecture is compared against four baselines,
+including a single-agent with self-consistency and a multi-agent setup
+without debate. The study includes a structural validation over 43 Brazilian
+stock portfolios and a main comparison among techniques over 20 portfolios
+enriched with market data. In the enriched setting, the multi-agent baseline
+without debate provides the best balance between consensus agreement,
+conclusive diagnoses and cost proxy. Heterogeneous routing reduces cost and
+latency compared with the homogeneous debate variant, but does not yet show a
+clear proxy-accuracy gain.
+\end{abstract-en}
+
+\begin{pchaves}
+LLMs, sistemas multiagente, diagnóstico financeiro, carteiras, avaliação experimental
+\end{pchaves}
+
+\begin{keywords}
+LLMs, multi-agent systems, financial diagnosis, portfolios, experimental evaluation
+\end{keywords}
+
+\begin{dates}
+% This information will be provided by the editor before publishing the paper
+\noindent{\sffamily\textbf{Recebido/Received:}} DD Month YYYY~~~$\bullet$~~~
+{\sffamily\textbf{Aceito/Accepted:}} DD Month YYYY~~~$\bullet$~~~
+{\sffamily\textbf{Publicado/Published:}} DD Month YYYY
+\end{dates}
+
+
+%\begin{license}
+%Published under the Creative Commons Attribution 4.0 International Public License (CC BY 4.0)
+%\end{license}
+
+\end{frontmatter}
+
+
+\input{sections/01-introducao}
+\input{sections/02-trabalhos-relacionados}
+\input{sections/03-arquitetura}
+\input{sections/04-metodologia}
+\input{sections/05-resultados}
+\input{sections/06-ameacas}
+\input{sections/07-conclusao}
+
+
+\begin{declarations}
+
+\begin{acknowledgements}
+Os autores agradecem à Universidade de Fortaleza (UNIFOR) pelo apoio institucional durante o desenvolvimento deste trabalho.
+\end{acknowledgements}
+
+\begin{funding}
+Esta pesquisa não recebeu financiamento externo específico.
+\end{funding}
+
+\begin{contributions}
+Rafael Florenzano contribuiu para a concepção do estudo, implementação dos agentes, mecanismo de debate, desenho experimental e redação principal do manuscrito. Rian Freitas contribuiu com infraestrutura, preparação de dados, execução experimental e revisão da metodologia. Ambos os autores leram e aprovaram o manuscrito final.
+\end{contributions}
+
+\begin{interests}
+Os autores declaram que não têm nenhum conflito de interesses.
+\end{interests}
+
+\begin{materials}
+Os conjuntos de dados e softwares gerados e/ou analisados durante o estudo atual serão disponibilizados em repositório público após a anonimização ou ao final do processo de revisão, conforme exigências do evento.
+\end{materials}
+
+\begin{furtherinformation}
+Ferramentas de IA generativa foram utilizadas como apoio à redação técnica, sob revisão integral dos autores. Não houve necessidade de aprovação em comitê de ética, uma vez que o trabalho não envolve sujeitos humanos.
+\end{furtherinformation}
+\end{declarations}
+
+
+
+\bibliographystyle{apalike-sol}
+\bibliography{refs}
+
+\end{document}

@@ -14,6 +14,7 @@ Restrições:
 - Não ignore riscos; explique por que eles podem ser toleráveis ou mitigados.
 - Não invente dados, eventos ou fundamentos.
 - Seja direto e auditável.
+- Seja conciso: tese com até 2 frases; listas com no máximo 3 itens; cada item curto.
 """
 
 
@@ -34,7 +35,9 @@ class BullAgent(Agent):
             f"Perfil:\n{json.dumps(profile, ensure_ascii=False, indent=2)}\n\n"
             f"Análises especializadas:\n{json.dumps(analyses, ensure_ascii=False, indent=2)}\n\n"
             f"Rodadas anteriores:\n{json.dumps(previous_rounds, ensure_ascii=False, indent=2)}\n\n"
-            "Produza o argumento Bull conforme o schema."
+            "Produza o argumento Bull conforme o schema. Use no máximo 3 itens em "
+            "`key_points`, `challenged_assumptions`, `evidence_used` e "
+            "`residual_uncertainties`."
         )
         output = self._invoke_structured(prompt, schema=DebateArgumentOutput)
         output.stance = "bull"

@@ -1,0 +1,68 @@
+\section{Trabalhos Relacionados}
+
+\subsection{Sistemas multiagente com LLMs em finanças}
+
+Trabalhos recentes vêm explorando agentes baseados em LLMs para análise
+financeira e para tomada de decisão em trading. TradingAgents organiza
+diferentes papéis (analistas de notícias, analistas técnicos, gerentes de
+risco e traders) em fluxos de comunicação que terminam em decisões
+operacionais \citep{tradingagents2024}. FinCon propõe um sistema com
+reforço verbal conceitual para apoiar decisões financeiras complexas,
+explorando como agentes podem revisar suas próprias conclusões a partir de
+sinais contextuais \citep{fincon2024}. AlphaAgents foca especificamente em
+construção de carteiras de ações usando múltiplos agentes baseados em LLMs
+\citep{alphaagents2025}, e HedgeAgents discute uma abordagem multiagente
+voltada ao suporte à decisão em fundos \citep{hedgeagents2025}. Em comum,
+essas propostas decompõem a tarefa em papéis especializados e combinam os
+resultados desses papéis em uma decisão final.
+
+O foco predominante, contudo, está em seleção de ativos ou em decisão de
+compra e venda. O presente trabalho se posiciona em outro recorte: tratar o
+problema como diagnóstico personalizado de uma carteira já existente,
+condicionado ao perfil declarado pelo usuário. A unidade de avaliação
+deixa de ser apenas a plausibilidade de uma tese de investimento e passa
+a incluir a adequação da classificação aos diferentes perfis e a
+capacidade do sistema de indicar incerteza quando faltam dados. Isso
+afeta diretamente as métricas escolhidas: além de variáveis operacionais,
+importam sensibilidade à personalização e cobertura dos fatores de risco.
+
+\subsection{Debate multiagente e baselines fortes}
+
+Debate entre múltiplos agentes baseados em LLMs tem sido proposto como
+estratégia para melhorar raciocínio, robustez e verificação cruzada de
+respostas. Evidências recentes, porém, mostram que parte dos ganhos
+atribuídos ao debate desaparece quando se utilizam baselines de agente
+único com orçamento computacional equivalente, com prompts melhores e
+self-consistency \citep{zhang2025stop}. O ponto é especialmente relevante
+em domínios com alto custo cognitivo, como o financeiro, onde acrescentar
+chamadas a uma LLM se traduz em mais latência e mais custo por análise.
+
+Por isso, este trabalho adota baselines fortes de agente único como
+referência principal de comparação. Em particular, considera-se uma LLM
+única com raciocínio estruturado e self-consistency, com orçamento
+ajustado ao número de chamadas dos demais baselines, de modo a evitar que
+diferenças observadas decorram apenas da maior alocação de computação em
+sistemas multiagente. O sistema sem debate, com agentes especialistas e
+moderador, entra como ponto intermediário e permite separar o efeito do
+debate do efeito da decomposição em papéis.
+
+\subsection{Personalização em diagnóstico financeiro}
+
+Personalização aparece frequentemente como característica desejável em
+aplicações financeiras com LLMs, mas raramente como dimensão de avaliação
+em si. Em muitos sistemas, o perfil do usuário é passado como entrada sem
+que se verifique, de forma controlada, se a saída de fato muda com esse
+perfil. O risco é claro: respostas pouco condicionadas ao usuário, em que
+o sistema repete diagnósticos genéricos sobre a carteira independente do
+perfil declarado.
+
+Aqui, a personalização é avaliada por meio de casos contrafactuais. A
+mesma carteira é diagnosticada sob perfis conservador, moderado e
+agressivo, com todas as demais entradas constantes. A expectativa é que a
+classificação e a justificativa se desloquem na direção compatível com
+cada perfil: uma carteira de alta volatilidade deve ser mais
+frequentemente classificada como \textit{atenção} ou \textit{risco
+elevado} sob perfil conservador do que sob perfil agressivo. A frequência
+com que essa relação se sustenta passa a ser, então, uma métrica direta
+de sensibilidade à personalização, e separa comportamento personalizado
+de mera variação textual.

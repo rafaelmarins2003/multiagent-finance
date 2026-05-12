@@ -4,6 +4,8 @@ import time
 from collections.abc import Callable
 from typing import Any
 
+from mafin.config import LLM_MAX_CONCURRENCY
+
 
 def _empty_runtime_metrics() -> dict[str, Any]:
     return {"llm_calls": 0, "calls_by_model": {}}
@@ -66,6 +68,7 @@ def summarize_execution(state: dict[str, Any]) -> dict[str, Any]:
             "debate_stopped_by": debate_status.get("stopped_by"),
             "cost_proxy_unit": "llm_call",
             "cost_proxy_value": total_calls,
+            "max_concurrency": LLM_MAX_CONCURRENCY,
             "cost_note": (
                 "Proxy operacional. O custo real no Ollama Cloud deve ser calculado "
                 "com telemetria de uso/GPU quando disponível."

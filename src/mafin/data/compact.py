@@ -21,7 +21,7 @@ def compact_market_data(market_data: dict[str, Any]) -> dict[str, Any]:
         "ma200",
         "vol_30d",
         "trend",
-        "volume_avg",
+        "volume_30d_avg",
         "history_start",
         "history_end",
         "data_gaps",

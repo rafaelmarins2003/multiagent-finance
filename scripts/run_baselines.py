@@ -11,7 +11,7 @@ from typing import Any, cast
 
 from mafin.baselines import BASELINE_NAMES, run_baseline
 from mafin.baselines.runner import BaselineName
-from mafin.config import DEFAULT_LLM, TRACE_DB_PATH
+from mafin.config import DEFAULT_LLM, LLM_MAX_CONCURRENCY, TRACE_DB_PATH
 from mafin.data.snapshot import PortfolioDataSnapshot
 
 
@@ -27,6 +27,7 @@ def parse_args() -> argparse.Namespace:
         default=list(BASELINE_NAMES),
     )
     parser.add_argument("--case-id", default=None, help="Run only this case id.")
+    parser.add_argument("--offset-cases", type=int, default=0)
     parser.add_argument("--limit-cases", type=int, default=None)
     parser.add_argument("--single-model", default=DEFAULT_LLM)
     parser.add_argument("--self-consistency-samples", type=int, default=5)
@@ -81,6 +82,7 @@ def _cases_from_workload(
     workload_path: Path,
     *,
     case_id: str | None,
+    offset_cases: int = 0,
     limit_cases: int | None,
 ) -> list[dict[str, Any]]:
     workload = json.loads(workload_path.read_text(encoding="utf-8"))
@@ -97,11 +99,11 @@ def _cases_from_workload(
         }
         for portfolio in workload.get("portfolios", [])
     ]
-    cases = []
+    filtered_cases = []
     for case in raw_cases:
         if case_id and case.get("case_id") != case_id:
             continue
-        cases.append(
+        filtered_cases.append(
             {
                 "case_id": case["case_id"],
                 "source": str(workload_path),
@@ -110,8 +112,11 @@ def _cases_from_workload(
                 "metadata": case.get("metadata", {}),
             }
         )
-        if limit_cases is not None and len(cases) >= limit_cases:
-            break
+    if offset_cases < 0:
+        raise ValueError("--offset-cases must be >= 0.")
+    cases = filtered_cases[offset_cases:]
+    if limit_cases is not None:
+        cases = cases[:limit_cases]
     return cases
 
 
@@ -122,6 +127,7 @@ def load_cases(args: argparse.Namespace) -> list[dict[str, Any]]:
         cases = _cases_from_workload(
             args.workload,
             case_id=args.case_id,
+            offset_cases=args.offset_cases,
             limit_cases=args.limit_cases,
         )
 
@@ -170,12 +176,14 @@ def main() -> None:
         "input": str(args.snapshot or args.workload),
         "input_kind": "snapshot" if args.snapshot else "workload",
         "case_id_filter": args.case_id,
+        "offset_cases": args.offset_cases,
         "case_count": len(cases),
         "case_ids": [case["case_id"] for case in cases],
         "baselines": baselines,
         "single_model": args.single_model,
         "self_consistency_samples": args.self_consistency_samples,
         "b3_route_preset": args.b3_route_preset,
+        "llm_max_concurrency": LLM_MAX_CONCURRENCY,
         "trace_db": trace_db_path,
         "output": str(output_path),
     }

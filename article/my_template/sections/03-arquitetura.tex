@@ -1,0 +1,149 @@
+\section{Arquitetura Proposta}
+
+Esta seção descreve a arquitetura proposta para diagnóstico personalizado de
+carteiras. O sistema recebe uma entrada estruturada, executa agentes
+especialistas com papéis financeiros distintos, promove um debate
+adversarial entre interpretações contrastantes e produz uma saída final
+padronizada. A arquitetura não tem por objetivo recomendar compra, venda
+ou rebalanceamento: sua função é classificar a situação da carteira em
+relação ao perfil do usuário e tornar explícitos os fatores que sustentam
+essa classificação. O recorte por diagnóstico, em vez de recomendação, é
+deliberado. Ele permite que o sistema admita incerteza, separe risco
+observado de lacuna de dados e seja avaliado por métricas que não dependem
+de execução em mercado real.
+
+\subsection{Entrada, estado compartilhado e saída}
+
+A entrada do sistema é composta por três grupos de informação. O primeiro
+é a carteira, representada por tickers, pesos normalizados e setores. O
+segundo é o perfil do usuário, contendo tolerância a risco, horizonte e
+objetivo declarado. O terceiro contém dados financeiros externos, quando
+disponíveis: preços, fundamentos, notícias e indicadores macroeconômicos.
+A separação é intencional. A arquitetura segue operacional mesmo quando
+parte dos dados externos não está presente, registrando as lacunas em vez
+de inferir o que não foi observado.
+
+Internamente, a execução mantém um estado compartilhado que armazena a
+entrada original, as análises produzidas pelos especialistas, as rodadas
+de debate, o diagnóstico final e metadados de execução. Cada agente lê o
+estado e retorna apenas uma atualização parcial, sem sobrescrever
+resultados de outros papéis. A organização também facilita a comparação
+com os baselines: o mesmo estado inicial pode ser consumido por uma LLM
+única, por um conjunto de especialistas sem debate ou pela arquitetura
+completa, mantendo a entrada controlada entre as variantes.
+
+A saída final é um objeto estruturado com cinco campos principais:
+classificação discreta, justificativa textual, fatores positivos, fatores
+negativos e confiança. As classes possíveis são \textit{estável},
+\textit{atenção}, \textit{risco elevado}, \textit{desalinhada} e
+\textit{inconclusiva}. A classe \textit{inconclusiva} é central no
+problema: ela dá ao sistema um caminho explícito para sinalizar falta de
+evidência, em lugar de produzir uma análise aparentemente segura sem base
+informacional. Respostas inconclusivas justificadas por ausência de dados
+são tratadas, nas métricas, de forma distinta das classificações
+afirmativas, para não penalizar o sistema por reconhecer suas próprias
+limitações.
+
+\subsection{Agentes especialistas}
+
+Os agentes especialistas decompõem o diagnóstico em perspectivas
+financeiras complementares. O agente técnico resume sinais de preço,
+médias móveis, volatilidade e tendência, quando esses dados estão
+disponíveis. O agente de sentimento interpreta notícias, eventos e
+evidências textuais explicitamente fornecidas. O agente fundamentalista
+avalia indicadores como valuation, dividendos, margens, lucro e dívida.
+O agente macroeconômico resume fatores agregados relevantes para a
+carteira, como ciclo de juros e condições setoriais amplas. O agente de
+risco avalia concentração, exposição setorial e alinhamento da carteira
+ao perfil informado.
+
+A decomposição não assume que cada agente terá evidência suficiente. Uma
+regra central dos prompts é distinguir risco observado de lacuna de
+dados. Ausência de fundamentos, por exemplo, não deve ser tratada como
+fundamento ruim; ela deve ser registrada como incerteza explícita. A
+distinção é importante sobretudo na comparação com baselines de agente
+único, que tendem a produzir respostas mais assertivas mesmo sob baixa
+evidência, escondendo a fragilidade do diagnóstico em texto bem
+formulado.
+
+Todos os agentes retornam saídas estruturadas via schemas Pydantic. O
+sistema envia o schema esperado no prompt e valida a resposta localmente.
+Respostas que não obedecem ao schema são registradas como erro de parsing
+e não compõem o diagnóstico final, evitando que saídas malformadas
+contaminem as métricas. A taxa de sucesso de parsing é tratada como
+métrica operacional explícita e reportada para todos os baselines, como
+indicador da confiabilidade do sistema em uso contínuo.
+
+\subsection{Debate adversarial}
+
+O debate adversarial é composto por dois agentes contrastantes. O agente
+Bull constrói a leitura favorável mais forte compatível com os dados
+disponíveis; o agente Bear, a leitura crítica mais forte. Ambos são
+instruídos a não recomendar compra, venda ou rebalanceamento e a não
+transformar lacunas de dados em perdas financeiras. O moderador recebe as
+duas leituras junto com as análises dos especialistas e produz a síntese
+final, atribuindo à classificação um nível de confiança coerente com o
+grau de convergência entre as fontes.
+
+O objetivo do debate não é decidir por votação, e sim explicitar
+incertezas e fatores contrastantes. Cabe ao Bull organizar evidências
+favoráveis e mitigadores; cabe ao Bear tornar visíveis riscos,
+fragilidades e pressupostos pouco sustentados. Trata-se, na prática, de
+um mecanismo de auditoria interna. Quando Bull e Bear convergem, a
+confiança do diagnóstico cresce. Quando divergem fortemente, há razão
+para uma classificação intermediária, como \textit{atenção}, ou para uma
+classificação \textit{inconclusiva}.
+
+O debate é limitado por um número máximo de rodadas e por uma medida
+determinística de convergência lexical entre rodadas, calculada sobre a
+interseção dos fatores mencionados por Bull e Bear. A configuração
+avaliada utiliza uma rodada por caso, o que mantém a comparação com os
+baselines transparente: o custo adicional do debate fica diretamente
+refletido no número de chamadas LLM, em tokens e em latência, todos
+registrados por execução.
+
+\subsection{Roteamento de modelos}
+
+São avaliadas duas variantes da arquitetura com debate. A variante B4-H
+emprega um único modelo em todos os papéis, isolando o efeito da
+arquitetura em relação ao modelo subjacente. A variante B4-R utiliza
+roteamento heterogêneo, combinando modelos distintos para especialistas,
+debate e moderação. O limite de concorrência é configurável e foi ajustado
+conforme a estabilidade do provedor. A validação estrutural usou até três
+chamadas simultâneas; parte da comparação enriquecida foi reduzida para uma
+chamada por vez após respostas temporárias de sobrecarga do serviço. Essa
+diferença é registrada nos logs e entra nas métricas operacionais de
+latência e chamadas, sem alterar a entrada compartilhada entre baselines.
+
+Na configuração avaliada, B4-H utiliza \texttt{deepseek-v4-pro} em todos
+os papéis. Em B4-R, os agentes técnico e de risco utilizam
+\texttt{nemotron-3-super}; sentimento, fundamentos, macroeconomia e
+moderação utilizam \texttt{deepseek-v4-pro}; Bull e Bear utilizam
+\texttt{minimax-m2.7}. As páginas oficiais do Ollama classificam
+\texttt{deepseek-v4-pro} como uso ``extra high'', e
+\texttt{minimax-m2.7} e \texttt{nemotron-3-super} como uso ``medium''
+\citep{ollamadeepseek2026,ollamaminimax2026,ollamanemotron2026}. A escolha
+de modelos por papel não é apresentada como ótima em sentido absoluto. Ela
+operacionaliza a hipótese de que papéis diferentes podem se beneficiar de
+modelos com perfis distintos, enquanto B4-H atua como controle homogêneo
+dessa hipótese.
+
+\subsection{Implementação e rastreabilidade}
+
+A arquitetura é implementada em Python, com LangGraph para orquestração
+do estado compartilhado entre agentes e Pydantic para os schemas de
+entrada e saída. As chamadas aos modelos passam por uma camada uniforme,
+o que permite trocar provedores sem alterar a lógica dos agentes. Cada
+chamada LLM passa por um envelope que registra o agente de origem, o
+baseline em execução, o caso analisado, o modelo utilizado e o tempo de
+resposta.
+
+A execução completa registra, em SQLite, informações detalhadas por
+caso, baseline, agente e chamada LLM: modelo, prompt enviado, resposta
+bruta, resposta parseada, status, latência, tokens quando disponíveis e
+erro quando aplicável. Os registros sustentam tanto a depuração quanto
+as métricas reportadas, e permitem reexecutar análises agregadas sem
+acionar novamente os modelos. Em outras palavras, é possível auditar de
+forma objetiva se diferenças entre baselines vêm de mudanças na
+arquitetura, do modelo utilizado ou de comportamento intermitente do
+provedor.

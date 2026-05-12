@@ -1,20 +1,76 @@
+# Python / build artifacts
 __pycache__/
 *.py[cod]
 *.egg-info/
-.venv/
-venv/
-.env
-.ruff_cache/
-.pytest_cache/
 build/
 dist/
-data/cache/
-data/snapshots/
-data/results/
-data/traces/
-article/
-ignore/
+
+# Virtual environments and local tooling
+.venv/
+venv/
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Local IDE / assistant state
+.claude/
+.idea/
+.vscode/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+# Generated data. Keep raw snapshots, traces, logs, requests, and full LLM
+# outputs out of GitHub. They may contain large responses, transient provider
+# errors, search snippets, API metadata, and local execution details.
+data/*
+!data/results/
+data/results/*
+!data/results/article_comparison_metrics.csv
+!data/results/article_comparison_metrics.json
+!data/public/
+!data/public/**
+
+# Databases and execution logs
+*.sqlite
+*.sqlite3
+*.db
 *.log
+*.pid
+global_execution.txt
+
+# Archives and local scratch files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+ignore/
 idea.txt
 models_choose.txt
 ROADMAP.md
+
+# LaTeX build artifacts. Keep source files and article figures, but not the
+# generated manuscript PDF unless it is attached separately as a release asset.
+article/professor_template/
+article/*.aux
+article/*.bbl
+article/*.blg
+article/*.log
+article/*.out
+article/*.pdf
+article/*.toc
+article/**/*.aux
+article/**/*.bbl
+article/**/*.blg
+article/**/*.log
+article/**/*.out
+article/**/*.pdf
+article/**/*.toc
+!article/my_template/figures/
+!article/my_template/figures/*.pdf
+article/my_template/README.md
+article/my_template/PROJECT_REVIEW.md

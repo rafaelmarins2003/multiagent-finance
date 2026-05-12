@@ -1,0 +1,31 @@
+\section{Ameaças à Validade}
+\label{sec:ameacas}
+
+Há ameaças importantes à validade dos resultados. As carteiras foram
+obtidas de fontes públicas e podem não representar a distribuição
+completa de carteiras reais de investidores; os perfis do workload,
+além disso, não estão perfeitamente balanceados entre conservador,
+moderado e agressivo. A validação estrutural não utiliza dados externos,
+o que favorece diagnósticos inconclusivos nos sistemas que tratam
+ausência de evidência com mais rigor, e deve ser lida como avaliação
+estrutural, não como comparação principal de qualidade financeira.
+
+A comparação enriquecida, por sua vez, foi feita em 20 carteiras. Ela é a
+base da comparação entre técnicas, mas ainda é uma amostra limitada para
+afirmar superioridade estatística de uma arquitetura sobre outra. Além
+disso, parte dessa execução precisou ser realizada com menor concorrência
+por instabilidade temporária do provedor, o que afeta diretamente as
+métricas de latência. Os modelos usados via provedor externo podem variar
+de comportamento ao longo do tempo, mesmo com prompts e entradas
+congeladas. A métrica de acurácia proxy por consenso também pode favorecer
+abordagens que se comportam de forma semelhante à maioria, sem garantir que
+a maioria esteja correta financeiramente. E esta versão ainda não inclui
+avaliação humana, LLM-as-judge calibrado, verificação detalhada de erro
+factual nem comparação contra retorno futuro das carteiras.
+
+Para reduzir esses riscos, o pipeline registra todas as chamadas e
+resultados em SQLite, usa entradas congeladas, compara múltiplos
+baselines, reporta erros de parsing e separa métricas operacionais de
+métricas de qualidade. Mesmo assim, as conclusões aqui apresentadas
+devem ser lidas como evidência inicial sobre a arquitetura e seu
+comportamento, não como validação definitiva de desempenho financeiro.

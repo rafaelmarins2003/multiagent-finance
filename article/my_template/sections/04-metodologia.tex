@@ -1,0 +1,92 @@
+\section{Metodologia Experimental}
+
+\subsection{Workload}
+
+O workload contém 43 carteiras de ações brasileiras obtidas de fontes
+públicas e organizadas em formato estruturado. Cada carteira possui pesos
+normalizados, setores e metadados de origem. O conjunto reúne 88 tickers
+únicos e cobre três perfis de investidor: conservador, moderado e
+agressivo. As carteiras são consumidas pela arquitetura e pelos baselines
+exatamente na mesma forma estruturada, sem alterações específicas por
+abordagem.
+
+O estudo usa duas execuções com funções diferentes. A primeira é uma
+validação estrutural sobre as 43 carteiras usando apenas carteira e perfil.
+Ela verifica se todas as variantes executam de forma comparável e como cada
+uma trata lacunas de informação, mas não é usada como principal evidência de
+qualidade financeira. A segunda é a comparação principal entre técnicas:
+um subconjunto de 20 carteiras é enriquecido com preços via
+\texttt{yfinance}, notícias e sinais textuais via Brave Search API, e
+indicadores macroeconômicos via fontes públicas. Essa execução enriquecida
+é o cenário usado para comparar custo, detalhamento, conclusividade e proxy
+de acurácia entre B1, B2, B3, B4-H e B4-R.
+
+\subsection{Baselines}
+
+A avaliação compara cinco variantes:
+
+\begin{itemize}
+  \item B1: LLM única ingênua, com prompt direto;
+  \item B2: LLM única com raciocínio estruturado e self-consistency;
+  \item B3: sistema multiagente com especialistas e moderador, sem debate;
+  \item B4-H: sistema multiagente com debate usando um modelo homogêneo;
+  \item B4-R: sistema multiagente com debate e roteamento heterogêneo por
+  papel.
+\end{itemize}
+
+Todos os baselines recebem a mesma entrada congelada e produzem o mesmo
+formato de saída: classificação, justificativa, fatores positivos,
+fatores negativos, confiança e alinhamento ao perfil. A uniformidade é
+indispensável para comparações justas e permite que as métricas
+reportadas sejam computadas exatamente da mesma forma para todos os
+baselines. B1, B2 e B3 atuam como pontos de referência de exigência
+crescente, de modo que B4-H e B4-R precisam superar não apenas o
+baseline ingênuo, mas também variantes deliberadamente fortes de agente
+único e de multiagente sem debate.
+
+\subsection{Métricas}
+
+As métricas estão organizadas em três grupos. As operacionais incluem
+taxa de sucesso final, latência fim a fim, número de chamadas LLM,
+tentativas com erro transitório ou de parsing, tokens por baseline e
+custo por análise. Como o provedor usado nos experimentos, Ollama Cloud,
+mede uso por utilização de infraestrutura e não por tarifa pública fixa
+por token, o custo é reportado de duas formas. A primeira é um proxy de
+uso no Ollama, calculado como tokens multiplicados pelo nível oficial de
+uso do modelo. A segunda é uma estimativa contrafactual em dólares usando
+preços oficiais por token quando eles estão disponíveis para o provedor
+original do modelo. Para DeepSeek V4-Pro e MiniMax M2.7 há preço público
+por token; para Nemotron 3 Super, usado via Ollama Cloud, não foi
+encontrada uma tarifa oficial equivalente por token, então seus tokens
+são reportados separadamente como não precificados
+\citep{deepseekpricing2026,minimaxpricing2026,ollamapricing2026}.
+
+As métricas estruturadas incluem a distribuição de classificações,
+a taxa de diagnósticos conclusivos e uma medida de concordância com
+consenso. Essa concordância é usada como proxy de acurácia: para cada
+carteira, calcula-se a classe majoritária entre os cinco baselines e
+mede-se se cada baseline concordou com essa maioria. Casos empatados são
+excluídos do denominador. Essa métrica não mede acerto financeiro real;
+ela mede consistência relativa entre modos de execução sob a mesma
+entrada. As métricas textuais incluem quantidade média de fatores
+positivos e negativos e tamanho médio da justificativa.
+
+Nesta etapa do estudo, ainda não há ground truth humano nem comparação
+com retorno futuro das carteiras. Por isso, a sensibilidade à
+personalização, a consistência entre execuções e a avaliação textual com
+anotação humana permanecem como próximos passos experimentais. Essa
+separação evita tratar fluidez textual ou assertividade aparente como
+prova de superioridade financeira.
+
+\subsection{Rastreabilidade}
+
+Cada execução registra em SQLite o baseline, o caso, o agente, o modelo,
+o prompt, a resposta bruta, a resposta parseada, o status, a latência,
+os tokens consumidos e o erro quando aplicável. A rastreabilidade tem
+dois papéis. Primeiro, permite auditoria posterior e consolidação
+quantitativa dos resultados sem novas chamadas LLM. Segundo, permite
+distinguir comportamentos do sistema de comportamentos do provedor: se
+um baseline apresentar variação anômala entre execuções, é possível
+inspecionar diretamente os registros de chamadas e verificar se a
+variação decorre de erros de parsing, de respostas atípicas do modelo
+ou de mudanças sistemáticas no comportamento da arquitetura.

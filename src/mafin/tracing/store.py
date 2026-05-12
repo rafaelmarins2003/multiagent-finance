@@ -33,7 +33,7 @@ class SQLiteTraceStore:
 
     def ensure_schema(self) -> None:
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
-        with sqlite3.connect(self.db_path) as conn:
+        with sqlite3.connect(self.db_path, timeout=30) as conn:
             conn.executescript(
                 """
                 PRAGMA journal_mode=WAL;
@@ -108,7 +108,7 @@ class SQLiteTraceStore:
         metadata: dict[str, Any] | None = None,
     ) -> None:
         self.ensure_schema()
-        with sqlite3.connect(self.db_path) as conn:
+        with sqlite3.connect(self.db_path, timeout=30) as conn:
             conn.execute(
                 """
                 INSERT OR REPLACE INTO experiment_runs (
@@ -152,7 +152,7 @@ class SQLiteTraceStore:
         usage_metadata = usage_metadata or {}
         raw_response_json = _json_or_none(raw_response)
         response_chars = len(raw_response_json or "")
-        with sqlite3.connect(self.db_path) as conn:
+        with sqlite3.connect(self.db_path, timeout=30) as conn:
             conn.execute(
                 """
                 INSERT INTO llm_calls (
@@ -205,7 +205,7 @@ class SQLiteTraceStore:
         result: dict[str, Any] | None,
         error: str | None = None,
     ) -> None:
-        with sqlite3.connect(self.db_path) as conn:
+        with sqlite3.connect(self.db_path, timeout=30) as conn:
             conn.execute(
                 """
                 INSERT OR REPLACE INTO baseline_results (

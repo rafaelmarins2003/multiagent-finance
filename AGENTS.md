@@ -9,9 +9,8 @@ Python package for multi-agent portfolio diagnosis.
 - `src/mafin/graph/` defines LangGraph state and graph construction.
 - `src/mafin/data/` defines portfolio and user profile schemas.
 - `src/mafin/llm/` contains model client integrations, currently Ollama.
-- `scripts/smoke.py` runs a hardcoded smoke test.
-
-No `tests/` directory is committed. Add tests under `tests/` for stable behavior.
+- `scripts/smoke.py` runs a smoke test and supports dry-run route inspection.
+- `tests/` contains unit tests for schemas, workload conversion, graph compilation, tracing, and baseline helpers.
 
 ## Build, Test, and Development Commands
 
@@ -77,7 +76,7 @@ Ruff is configured in `pyproject.toml` with line length `100` and rules `E`, `F`
 
 ## Testing Guidelines
 
-No automated test framework is configured yet. Prefer `pytest`.
+The project uses `pytest`.
 
 Recommended conventions:
 
@@ -86,11 +85,15 @@ Recommended conventions:
 - Name test functions `test_<behavior>()`.
 - Mock LLM calls; unit tests should not require Ollama or network access.
 
-Use the smoke script as an integration check, not as a test substitute.
+Run `uv run pytest` before changing prompts, routing, tracing, workload loading, or baseline logic. Use the smoke script as an integration check, not as a test substitute.
 
 ## Agent Execution Model
 
-Local development uses workstation Ollama to validate structure and prompts. Real experiments should use Ollama Cloud models. Use `DEFAULT_LLM` for B4-H and role-specific variables such as `TECHNICAL_LLM`, `BULL_LLM`, and `MODERATOR_LLM` for B4-R. If `OLLAMA_API_KEY` is set and `OLLAMA_HOST` is omitted, the code uses direct Ollama Cloud at `https://ollama.com` and strips `:cloud` from model names. Set `OLLAMA_HOST=http://localhost:11434` to force the local daemon. Because Ollama Cloud may not allow parallel requests, keep agents sequential unless there is a reason to diverge. Inference latency is secondary to reproducibility, comparable outputs, and API compatibility.
+Local development uses workstation Ollama to validate structure and prompts. Real experiments should use Ollama Cloud models. Use `DEFAULT_LLM` for B4-H and role-specific variables such as `TECHNICAL_LLM`, `BULL_LLM`, and `MODERATOR_LLM` for B4-R. If `OLLAMA_API_KEY` is set and `OLLAMA_HOST` is omitted, the code uses direct Ollama Cloud at `https://ollama.com` and strips `:cloud` from model names. Set `OLLAMA_HOST=http://localhost:11434` to force the local daemon. Keep concurrency controlled by `LLM_MAX_CONCURRENCY`; reduce it to `1` when the provider returns overload errors. Inference latency is secondary to reproducibility, comparable outputs, and API compatibility.
+
+Structured output defaults to `STRUCTURED_OUTPUT_MODE=manual`, which sends the Pydantic JSON schema inside the prompt and parses the returned JSON locally. Use `STRUCTURED_OUTPUT_MODE=json_schema` only when the target Ollama endpoint reliably supports native structured output. `OLLAMA_NUM_PREDICT` caps response length and `OLLAMA_TIMEOUT_SECONDS` controls HTTP timeout for long-running calls.
+
+Set `LLM_MAX_CONCURRENCY=3` for Ollama Cloud Pro. This parallelizes independent specialist agents and B2 self-consistency samples while keeping debate, moderation, cases, and baselines sequential. Do not set a value above the provider limit.
 
 ## Commit & Pull Request Guidelines
 

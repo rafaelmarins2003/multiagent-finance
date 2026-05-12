@@ -1,0 +1,31 @@
+\section{Conclusão}
+
+Este trabalho apresenta uma arquitetura multiagente baseada em LLMs para
+diagnóstico personalizado de carteiras financeiras. A proposta combina
+agentes especializados, debate adversarial, moderação estruturada e
+roteamento heterogêneo de modelos, mantendo a saída limitada a
+diagnóstico e evitando recomendações de compra ou venda.
+
+A contribuição central está na avaliação. O sistema é comparado contra
+baselines fortes, incluindo agente único com self-consistency e
+multiagente sem debate, e isso permite separar ganhos reais de
+personalização e cobertura de risco de melhorias meramente textuais.
+Os resultados mostram que a validação estrutural, sem dados externos,
+expõe melhor como os sistemas multiagente tratam lacunas de evidência. A
+comparação principal, feita com 20 carteiras enriquecidas, mostra diferenças
+mais úteis entre os modos de execução: custo, latência, conclusividade,
+detalhamento e concordância com consenso. Nesse cenário financeiro, B1 é o
+mais barato, B2 é o mais detalhista em número de fatores, B3 apresenta o
+melhor equilíbrio geral, e B4-R reduz custo e latência em relação a B4-H.
+
+Assim, a principal conclusão não é que o debate adversarial já supera os
+baselines em precisão financeira. Na execução enriquecida, B3 foi o melhor
+equilíbrio entre concordância com consenso, diagnósticos conclusivos e custo
+proxy, enquanto B4-R reduziu custo e latência em relação a B4-H, mas não
+melhorou a proxy de acurácia. A conclusão mais defensável é que a
+arquitetura proposta permite avaliar essa hipótese de forma controlada,
+rastreável e comparável, e que o benefício do debate ainda precisa ser
+demonstrado por métricas mais fortes. Como próximos passos, permanecem a
+avaliação contrafactual por perfil, a verificação factual automática, a
+calibração de LLM-as-judge com anotação humana e a comparação com desempenho
+posterior das carteiras.

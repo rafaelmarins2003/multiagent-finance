@@ -3,14 +3,16 @@ from __future__ import annotations
 import copy
 import time
 import uuid
+from concurrent.futures import ThreadPoolExecutor
 from contextlib import nullcontext
+from contextvars import copy_context
 from typing import Any, Literal
 
 from mafin.baselines.single import (
     SingleShotDiagnosisAgent,
     aggregate_self_consistency,
 )
-from mafin.config import DEFAULT_LLM, TRACE_DB_PATH, get_model_route
+from mafin.config import DEFAULT_LLM, LLM_MAX_CONCURRENCY, TRACE_DB_PATH, get_model_route
 from mafin.graph.build import build_graph
 from mafin.tracing import SQLiteTraceStore, trace_run
 from mafin.tracing.store import stable_hash
@@ -42,6 +44,29 @@ def _execution_summary_from_agent(agent: SingleShotDiagnosisAgent) -> dict[str, 
         "debate_stopped_by": None,
         "cost_proxy_unit": "llm_call",
         "cost_proxy_value": metrics["llm_calls"],
+    }
+
+
+def _execution_summary_from_agent_metrics(
+    *,
+    elapsed_seconds: float,
+    metrics: list[dict[str, Any]],
+) -> dict[str, Any]:
+    total_calls = sum(int(metric["llm_calls"]) for metric in metrics)
+    calls_by_model: dict[str, int] = {}
+    for metric in metrics:
+        for model, calls in metric["calls_by_model"].items():
+            calls_by_model[model] = calls_by_model.get(model, 0) + int(calls)
+
+    return {
+        "total_node_latency_seconds": round(elapsed_seconds, 6),
+        "total_llm_calls": total_calls,
+        "calls_by_model": calls_by_model,
+        "debate_rounds_completed": 0,
+        "debate_stopped_by": None,
+        "cost_proxy_unit": "llm_call",
+        "cost_proxy_value": total_calls,
+        "max_concurrency": LLM_MAX_CONCURRENCY,
     }
 
 
@@ -84,17 +109,43 @@ def _run_single_llm(
             "samples": [],
         }
 
-    agent = SingleShotDiagnosisAgent(model=model, structured_reasoning=True, temperature=0.4)
     started = time.perf_counter()
-    samples = [agent.run_diagnosis(state) for _ in range(self_consistency_samples)]
+    if LLM_MAX_CONCURRENCY <= 1 or self_consistency_samples <= 1:
+        agent = SingleShotDiagnosisAgent(model=model, structured_reasoning=True, temperature=0.4)
+        samples = [agent.run_diagnosis(state) for _ in range(self_consistency_samples)]
+        metrics = [agent.consume_runtime_metrics()]
+    else:
+        max_workers = min(LLM_MAX_CONCURRENCY, self_consistency_samples)
+
+        def run_sample(_index: int):
+            sample_agent = SingleShotDiagnosisAgent(
+                model=model,
+                structured_reasoning=True,
+                temperature=0.4,
+            )
+            sample = sample_agent.run_diagnosis(state)
+            return sample, sample_agent.consume_runtime_metrics()
+
+        futures = []
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            for index in range(self_consistency_samples):
+                context = copy_context()
+                futures.append(executor.submit(context.run, run_sample, index))
+            sample_results = [future.result() for future in futures]
+
+        samples = [sample for sample, _ in sample_results]
+        metrics = [sample_metrics for _, sample_metrics in sample_results]
+
     output = aggregate_self_consistency(samples)
     elapsed = time.perf_counter() - started
-    summary = _execution_summary_from_agent(agent)
-    summary["total_node_latency_seconds"] = round(elapsed, 6)
+    summary = _execution_summary_from_agent_metrics(
+        elapsed_seconds=elapsed,
+        metrics=metrics,
+    )
     return {
         "diagnosis": {
             "role": "single_llm_self_consistency",
-            "model": agent.model,
+            "model": model,
             "output": output.model_dump(),
         },
         "execution_summary": summary,
@@ -117,7 +168,7 @@ def _run_graph_baseline(
     else:
         route = get_model_route("b4r")
         graph = build_graph(routes=route, enable_debate=True, variant="b4r")
-    return graph.invoke(state)
+    return graph.invoke(state, config={"max_concurrency": LLM_MAX_CONCURRENCY})
 
 
 def run_baseline(
